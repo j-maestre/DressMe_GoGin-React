@@ -44,7 +44,7 @@ func BuildDBConfig() *DBConfig {
 		Port:     3306,  //3306 for mysql  //5432 for postgres   //Poner el puerto 8080 para redis en todos, y redis se encarga de dirigir cada servicio a un puerto diferente
 		User:     "xema", //xema for mysql  //postgres
 		Password: "123456789",
-		DBName:   "gran_melon", //first_go for mysql  //gran_melon for postgres
+		DBName:   "dressme", //first_go for mysql  //gran_melon for postgres
 	}
 	return &dbConfig
 }

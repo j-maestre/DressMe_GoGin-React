@@ -82,7 +82,7 @@ services:
     container_name: mysql_container
     environment:
       - MYSQL_ROOT_PASSWORD=123456789
-      - MYSQL_DATABASE=gran_melon
+      - MYSQL_DATABASE=dressme
       - MYSQL_USER=xema
       - MYSQL_PASSWORD=123456789
     volumes:

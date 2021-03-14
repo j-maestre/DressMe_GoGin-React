@@ -1,5 +1,4 @@
-# THE GREAT MELON
-![alt text](./img/logo.png)
+# Dress ME!
  
 ## How it works? 📖
 
