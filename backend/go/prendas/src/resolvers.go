@@ -20,3 +20,10 @@ func GetAllPrendas(data interface{}) error{
 	err := db.Find(data).Error
 	return err;
 }
+
+func CreateSlug(data string, lenght int) string{
+	slug := common.RandString(lenght)
+	slug = data +"-"+slug
+
+	return slug
+}

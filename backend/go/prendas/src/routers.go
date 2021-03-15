@@ -4,6 +4,7 @@ import (
 	// "fmt"
 	// "errors"
 	// "goApp/common"
+	// "github.com/gosimple/slug"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	// "strconv"
@@ -32,7 +33,11 @@ func PrendaCreate(c *gin.Context){
 	c.BindJSON(&prenda);
 
 	myUserModel := c.MustGet("my_user_model").(User)
-	prenda.User = myUserModel.ID; 
+	prenda.User = myUserModel.ID;
+
+	//Create slug of a prenda Type
+	slug := CreateSlug(prenda.Type, len(prenda.Type))
+	prenda.Slug = slug
 	
 	err:=CreatePrenda(&prenda)
 
