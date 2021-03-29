@@ -10,7 +10,7 @@ You can also create your own parties and post them.
 _Descarga el repositorio de github_
 
 ```
-git clone https://github.com/tonomolla6/testAngular-Laravel-Go.git
+git clone https://github.com/j-maestre/DressMe_GoGin-React.git
 ```
 
 

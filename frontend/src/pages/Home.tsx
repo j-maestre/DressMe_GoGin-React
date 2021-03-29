@@ -25,6 +25,11 @@ const Home: React.FC = () => {
         <span className="home-principal__subcontent">
           <IonLabel>Envios gratis en toda España</IonLabel>
         </span>
+
+        <section className="body-content">
+          <IonTitle>Todo el año</IonTitle>
+          <IonLabel>Los infaltables</IonLabel>
+        </section>
       </IonContent>
     </IonPage>
   );

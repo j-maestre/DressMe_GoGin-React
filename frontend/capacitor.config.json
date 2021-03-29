@@ -1,6 +1,6 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "blank",
+  "appName": "DressMe",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "build",
