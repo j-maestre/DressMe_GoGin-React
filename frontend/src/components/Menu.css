@@ -1,0 +1,41 @@
+:root {
+    --color-principal: rgb(83,81,81);
+    --color-secondary:rgb(228,228,228);
+
+}
+
+.logo{
+    /* background-color: red; */
+    background-image: url('../assets/img/dm-logo.svg');
+    width: 40px;
+    height: 40px;
+    margin-left: 0px;
+}
+
+.menu-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: center;
+    align-items:center;
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+}
+
+.nav-button{
+    color: var(--color-secondary);
+}
+
+/* div.toolbar-container{
+    background-color: var(--color-principal) !important;
+} */
+
+.oleeee{
+    margin-left: 100px;
+}
+
+.toolbar-background{
+    background-color: var(--color-principal);
+}
