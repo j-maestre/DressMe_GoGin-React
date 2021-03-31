@@ -16,7 +16,6 @@ import React, { useReducer, useEffect } from "react";
 let AppContext = React.createContext(null);
 
 const initialState = {
-  theme: "Light",
   user: "",
 
 };

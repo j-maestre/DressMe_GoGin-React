@@ -37,7 +37,9 @@ export const NavButtons = () => {
             <IonButton class="nav-button" routerLink={"/offers"}>Offers</IonButton>
             <IonButton class="nav-button" routerLink={"/contact"}>Contact</IonButton>
             <IonButton class="nav-button" routerLink={"/wardrobe"}>Wardrobe</IonButton>
-            <IonButton class="nav-button" routerLink={"/register"}>Sing in or Sing up</IonButton>
+            <IonButton class="nav-button" routerLink={"/login"}>Sing in</IonButton>
+            <p>OR</p>
+            <IonButton class="nav-button" routerLink={"/register"}>Sing up</IonButton>
           </div>
         </>
       )}

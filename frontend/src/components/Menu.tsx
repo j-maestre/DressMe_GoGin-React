@@ -41,6 +41,13 @@ export const Menu = () => {
             <IonItem button routerLink={"/wardrobe"} routerDirection="none">
               <IonLabel>Wardrobe</IonLabel>
             </IonItem>
+            <IonItem button routerLink={"/login"} routerDirection="none">
+              <IonLabel>Sing in</IonLabel>
+            </IonItem>
+            <p>OR</p>
+            <IonItem button routerLink={"/register"} routerDirection="none">
+              <IonLabel>Sing up</IonLabel>
+            </IonItem>
           </IonMenuToggle>
         </IonList>
       </IonContent>

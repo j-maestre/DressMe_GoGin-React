@@ -1,0 +1,19 @@
+.card-content{
+    margin-left: 16%;
+}
+
+.card-content__images .card-content__buttons{
+    margin-right: 10%;
+}
+
+.card-content__buttons *{
+    width: 298px;
+    margin-top: -10px;
+}
+
+.card-content__buttons{
+    display: flex;
+    flex-direction: row;
+    background-color: azure;
+    border-radius: 20px 20px;
+}

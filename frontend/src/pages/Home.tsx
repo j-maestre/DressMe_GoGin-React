@@ -3,6 +3,7 @@ import React from 'react';
 import './Home.css';
 import { NavButtons } from '../components/NavButtons';
 import logo from '../assets/img/principal-home.png'
+import DM_visited from '../components/DM-visited/DM-visited';
 
 const Home: React.FC = () => {
   return (
@@ -23,13 +24,19 @@ const Home: React.FC = () => {
           <IonButton routerLink={"/shop"} className="home-principal__content__buy-button">Comprar</IonButton>
         </div>
         <span className="home-principal__subcontent">
-          <IonLabel>Envios gratis en toda España</IonLabel>
+          <IonLabel className="home-principal__subcontent__title">Envios gratis en toda España</IonLabel>
         </span>
 
         <section className="body-content">
-          <IonTitle>Todo el año</IonTitle>
-          <IonLabel>Los infaltables</IonLabel>
+          <IonLabel className="body-content__title">TODO EL AÑO</IonLabel>
+          <span className="line body-line "></span>
+          <IonLabel className="body-content__subtitle">Los más vistos</IonLabel>
         </section>
+
+        <section className="body-content__visited">
+          <DM_visited/>
+        </section>
+
       </IonContent>
     </IonPage>
   );
