@@ -15,7 +15,7 @@
     background-color: rgb(229,222,213, 0.55);
     top:32%;
     left:27%;
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-family);
     font-size: 76px;
     display: flex;
     flex-direction: column;
@@ -60,10 +60,6 @@
     margin: 20px;
 }
 
-.line{
-    border-bottom: 2px solid var(--ion-color-primary);
-}
-
 .body-line{
     width: 15%;
     /* margin-left: 20%; */
@@ -71,7 +67,7 @@
 
 ion-label{
     color:var(--ion-color-primary);
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-family);
 }
 
 .body-content__subtitle{

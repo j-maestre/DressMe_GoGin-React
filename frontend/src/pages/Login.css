@@ -1,0 +1,29 @@
+.login-header {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-left: 30%;
+}
+.login-header__title {
+  font-size: 76px;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.login-header__image {
+  width: 200px;
+}
+
+.login-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-content *{
+    margin: 5px;
+}
+.login-content__title {
+  font-size: 50px;
+}

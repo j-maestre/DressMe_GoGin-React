@@ -17,6 +17,7 @@ let AppContext = React.createContext(null);
 
 const initialState = {
   user: "",
+  items: ""
 
 };
 
@@ -27,6 +28,9 @@ let reducer = (state, action) => {
     }
     case "SET_USER": {
       return { ...state, user: action.value };
+    }
+    case "SET_ITEMS": {
+      return { ...state, items: action.value };
     }
   }
   return state;

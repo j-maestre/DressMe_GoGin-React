@@ -3,6 +3,8 @@ http://ionicframework.com/docs/theming/ */
 
 /** Ionic CSS Variables **/
 :root {
+/* Font Family */
+  --font-family: "Times New Roman", Times, serif;
   /** primary **/
   --ion-color-primary: #535151;
   --ion-color-primary-rgb: rgb(83, 81, 81);

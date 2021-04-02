@@ -7,8 +7,8 @@ import (
 	"goApp/common"
 	"github.com/jinzhu/gorm"
 	"goApp/src"
-	"github.com/gin-contrib/cors"
-	"time"
+	// "github.com/gin-contrib/cors"
+	// "time"
 )
 
 // "goApp/prendas"
@@ -27,19 +27,19 @@ func main() {
 	defer db.Close()
 
 	r := gin.Default()
-	// MakeRoutes(r)
+	MakeRoutes(r)
 
-	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"*"},
-		AllowMethods:     []string{"*"},
-		AllowHeaders:     []string{"*"},
-		ExposeHeaders:    []string{"*"},
-		AllowCredentials: true,
-		AllowOriginFunc: func(origin string) bool {
-			return origin == "*"
-		},
-		MaxAge: 12 * time.Hour,
-	}))
+	// r.Use(cors.New(cors.Config{
+	// 	AllowOrigins:     []string{"*"},
+	// 	AllowMethods:     []string{"*"},
+	// 	AllowHeaders:     []string{"*"},
+	// 	ExposeHeaders:    []string{"*"},
+	// 	AllowCredentials: true,
+	// 	AllowOriginFunc: func(origin string) bool {
+	// 		return origin == "*"
+	// 	},
+	// 	MaxAge: 12 * time.Hour,
+	// }))
 
 
 	// config := cors.DefaultConfig()
@@ -59,27 +59,27 @@ func main() {
 	r.Run(":8080")//Cambiar al 8080 para traefik // listen and serve on 0.0.0.0:8080 by default
 }
 
-// func MakeRoutes(r *gin.Engine) {
+func MakeRoutes(r *gin.Engine) {
 
-// 	cors := func(c *gin.Context) {
+	cors := func(c *gin.Context) {
 
-// 		fmt.Println("CONSUlTA")
-// 		// c.Request.Method = "POST"
-// 		fmt.Println(c.Request.Method)
+		fmt.Println("CONSUlTA")
+		// c.Request.Method = "POST"
+		fmt.Println(c.Request.Method)
 
-// 		fmt.Printf("c.Request.Method \n")
+		fmt.Printf("c.Request.Method \n")
 
-// 		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-// 		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
-// 		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-// 		c.Writer.Header().Set("Access-Control-Allow-Methods", "*")
-// 		c.Writer.Header().Set("Content-Type", "application/json")
+		c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+		c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+		c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+		c.Writer.Header().Set("Access-Control-Allow-Methods", "*")
+		c.Writer.Header().Set("Content-Type", "application/json")
 
-// 		if c.Request.Method == "OPTIONS" {
-// 			fmt.Println("OPTIONs??????????????")
-// 			c.AbortWithStatus(200)
-// 		}
-// 		c.Next()
-// 	}
-// 	r.Use(cors)
-// }
+		if c.Request.Method == "OPTIONS" {
+			fmt.Println("OPTIONs??????????????")
+			c.AbortWithStatus(200)
+		}
+		c.Next()
+	}
+	r.Use(cors)
+}

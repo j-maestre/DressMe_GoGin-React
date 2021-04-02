@@ -5,3 +5,6 @@
     border-radius: 20px 20px;
 } */
 
+.line{
+    border-bottom: 2px solid var(--ion-color-primary);
+}
