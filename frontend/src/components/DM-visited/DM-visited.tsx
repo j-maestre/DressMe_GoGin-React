@@ -27,38 +27,38 @@ const DM_visited = (props: any) => {
   let headers = new Headers();
   headers.append('Content-Type', 'application/json');
   headers.append('Accept', 'application/json');
-  headers.append('Access-Control-Allow-Origin', '*');
-  headers.append('Access-Control-Allow-Credentials', 'true');
+  headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+  // headers.append('Access-Control-Allow-Credentials', 'true');
   // headers.append('GET', 'POST', 'OPTIONS');
 
   useEffect(() => {
-    axios.get(prendas_service, //proxy uri
-    {
-      headers: headers
-    }).then(function (response) {
-      console.log("OLE LOS CARACOLES")
-      console.log(response);
-    });
-
-    // fetch(prendas_service, {  
-    //   // mode: 'cors',
-    //   credentials: 'include',
-    //   method: 'GET',
+    // axios.get(prendas_service, //proxy uri
+    // {
     //   headers: headers
-    // }).then(res => res.json()).then(
-    //     (result) => {
-    //       console.log("OLE LOS CARACOLES");
-    //       console.log(result)
-    //     },
-    //     // Note: it's important to handle errors here
-    //     // instead of a catch() block so that we don't swallow
-    //     // exceptions from actual bugs in components.
-    //     (error) => {
-    //       console.log("ERROR")
-    //       console.log(error)
-    //       // setError(error);
-    //     }
-    //   )
+    // }).then(function (response) {
+    //   console.log("OLE LOS CARACOLES")
+    //   console.log(response);
+    // });
+
+    fetch(prendas_service, {  
+      // mode: 'cors',
+      // credentials: 'include',
+      method: 'GET',
+      headers: headers
+    }).then(res => res.json()).then(
+        (result) => {
+          console.log("OLE LOS CARACOLES");
+          console.log(result)
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          console.log("ERROR")
+          console.log(error)
+          // setError(error);
+        }
+      )
   }, [])
 
   return (
