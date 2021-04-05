@@ -1,0 +1,20 @@
+.model-content{
+    display: block;
+    width: 31%;
+    /* margin-left: 15%; */
+    border-width: 2px;
+    border-style: solid;
+    border-color: black;
+    margin-top: 2%;
+}
+
+.wardrobe{
+    display:flex;
+    justify-content: center;
+
+}
+
+.wardrobe__shop{
+    margin-left: 10%;
+}
+

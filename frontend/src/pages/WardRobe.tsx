@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons } from '@ionic/react';
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton } from '@ionic/react';
 import React from 'react';
 import './Wardrobe.css';
 import { NavButtons } from '../components/NavButtons';
@@ -16,10 +16,20 @@ const WardRobe: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-      <h1>Mi armario</h1>
-      {/* <section className="viewer-content"> */}
-        <DM_3dview />
-      {/* </section> */}
+        
+          <h1 className="wardrobe-header">Mi armario</h1>
+          <div className="wardrobe">
+          <DM_3dview />
+          
+          <section className="wardrobe__shop">
+            <h2>Mi ropa</h2>
+            <div className="wardrobe__shop__container"></div>
+            <span>-------</span>
+            <p className="wardrobe__shop__total">Total: </p>
+            <IonButton className="wardrobe__shop__buy">Comprar ahora</IonButton>
+          </section>
+        </div>
+      
       </IonContent>
     </IonPage>
   );

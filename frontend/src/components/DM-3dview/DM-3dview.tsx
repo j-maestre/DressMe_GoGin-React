@@ -28,17 +28,18 @@ const DM_3dview = (props: any) => {
 
 
   return (
-    <div id="model-content">
+    <div className="model-content">
       <OBJModel 
         width="400" height="400"  
         position={{x:0,y:-10,z:0}} 
-        src="./finalBaseMesh.obj"
+        src="./person.obj"
+        // zoom = "-3"
         onLoad={()=>{
           //state.isLoading=false
           console.log("OLE LOS CARACOLES")
         }}
         onProgress={xhr=>{
-          //state.isLoading = true
+          //state.isLoading = true -> en un useState
           console.log("Cargando modelo 3d...")
         }}
       />
