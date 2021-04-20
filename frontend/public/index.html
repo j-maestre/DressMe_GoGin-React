@@ -41,7 +41,20 @@
     <script src="https://unpkg.com/react@16.4.1/umd/react.production.min.js"></script>
     <script src="https://unpkg.com/react-dom@16.4.1/umd/react-dom.production.min.js"></script>
 
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+    <!-- THREE -->
+    <!-- The main Three.js file -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js'></script>
+    
+
+    <!-- This brings in the ability to load custom 3D objects in the .gltf file format. Blender allows the ability to export to this format out the box -->
+    <script src='https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/loaders/GLTFLoader.js'></script>
+
+
+    <!-- This is a simple to use extension for Three.js that activates all the rotating, dragging and zooming controls we need for both mouse and touch, there isn't a clear CDN for this that I can find -->
+    <!-- <script src='https://threejs.org/examples/js/controls/OrbitControls.js'></script> -->
+
+    <!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> -->
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.

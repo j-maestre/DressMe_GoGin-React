@@ -1,10 +1,38 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton } from '@ionic/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import './Wardrobe.css';
 import { NavButtons } from '../components/NavButtons';
-import DM_3dview from '../components/DM-3dview/DM-3dview'
+import {DM_3dview} from '../components/DM-3dview/DM-3dview';
+import { AppContext } from '../State'
+// import merge from '../components/DM-3dview/merge_images/merge'
+
+// import image_base from '../components/DM-3dview/images/model_base.png';
+// import pantalones_verdes from '../components/DM-3dview/images/pantalones_verde_oscuro.png';
+// import mergeImages from 'merge-images';
+// import { State } from 'ionicons/dist/types/stencil-public-runtime';
+
 
 const WardRobe: React.FC = () => {
+  const { state } = useContext(AppContext);
+  // console.log("VAmos a ver el state")
+  // console.log(state.base_model)
+
+
+
+
+//   let merge = (base, clothing, id) => {
+//     mergeImages([base, clothing])
+//     .then(new_image => document.querySelector('img').src = new_image);
+// }
+
+  //imagen base, imagenes que queremos superponer, id de la etiqueta img
+  // merge(image_base,pantalones_verdes,'imagen_muestra');
+
+  // document.getElementById('cambia_color').onclick = () =>{
+  //   merge(image_base,pantalones_verdes,'imagen_muestra');
+  // }
+
+
   return (
     <IonPage>
       <IonHeader>
@@ -19,7 +47,10 @@ const WardRobe: React.FC = () => {
         
           <h1 className="wardrobe-header">Mi armario</h1>
           <div className="wardrobe">
-          <DM_3dview />
+            {/* Coger la imagen base del state y pasarsela al componente */}
+
+
+          <DM_3dview image_base = {state.base_model}/>
           
           <section className="wardrobe__shop">
             <h2>Mi ropa</h2>
@@ -28,7 +59,12 @@ const WardRobe: React.FC = () => {
             <p className="wardrobe__shop__total">Total: </p>
             <IonButton className="wardrobe__shop__buy">Comprar ahora</IonButton>
           </section>
+
+          {/* <img src={image_base} id="imagen_muestra"/> */}
+          
+          {/* <IonButton onClick={() => merge(image_base,pantalones_verdes,'imagen_muestra')}>Cambiar color de pantalones</IonButton> */}
         </div>
+
       
       </IonContent>
     </IonPage>

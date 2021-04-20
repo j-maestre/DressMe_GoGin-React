@@ -17,7 +17,8 @@ let AppContext = React.createContext(null);
 
 const initialState = {
   user: "",
-  items: ""
+  items: "",
+  base_model: "hola"
 
 };
 
@@ -31,6 +32,9 @@ let reducer = (state, action) => {
     }
     case "SET_ITEMS": {
       return { ...state, items: action.value };
+    }
+    case "SET_BASE": {
+      return { ...state, base_model: action.value };
     }
   }
   return state;
@@ -63,22 +67,6 @@ function AppContextProvider(props) {
   };
 
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
-
-  // SAVE IN LOCALSTORAGE THE LOGGED USER
-  // useEffect(() => {
-  //   window.localStorage.setItem(
-  //     "persistedState",
-  //     JSON.stringify({
-  //       user: state.user,
-  //       segment: state.segment,
-  //       theme: state.theme,
-  //       welcome: state.welcome,
-  //       currentAvatar: state.currentAvatar,
-  //       user_notifications: state.user_notifications,
-  //     })
-  //   );
-  // }, [state]);
-
   let value = { state, dispatch };
 
   return (

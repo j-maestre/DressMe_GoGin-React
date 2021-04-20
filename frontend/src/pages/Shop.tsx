@@ -2,6 +2,7 @@ import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonLa
 import React from 'react';
 import './Shop.css';
 import { NavButtons } from '../components/NavButtons';
+import DM_products from '../components/DM-products/DM-products';
 
 const Shop: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const Shop: React.FC = () => {
           <IonLabel>Tienda</IonLabel>
         </section>
         <span className="line shop-line"></span>
+        {/* <DM_products /> */}
       </IonContent>
     </IonPage>
   );

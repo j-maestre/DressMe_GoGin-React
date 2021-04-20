@@ -27,9 +27,15 @@ const DM_visited = (props: any) => {
   let headers = new Headers();
   headers.append('Content-Type', 'application/json');
   headers.append('Accept', 'application/json');
-  headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
-  // headers.append('Access-Control-Allow-Credentials', 'true');
+  headers.append('Access-Control-Allow-Origin', '*');
+  headers.append('Access-Control-Allow-Credentials', 'true');
+  headers.append('Access-Control-Allow-Headers','Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With')
+  headers.append('Access-Control-Allow-Methods','GET, POST, PUT, DELETE, OPTIONS')
+  headers.append('Transfer-Encoding','chunked')
   // headers.append('GET', 'POST', 'OPTIONS');
+
+  console.log("HEADERS")
+  console.log(headers)
 
   useEffect(() => {
     // axios.get(prendas_service, //proxy uri
@@ -41,10 +47,15 @@ const DM_visited = (props: any) => {
     // });
 
     fetch(prendas_service, {  
-      // mode: 'cors',
+      mode: 'cors',
       // credentials: 'include',
+      // referrerPolicy: "no-referrer-when-downgrade",
       method: 'GET',
-      headers: headers
+      headers: new Headers({
+        'Content-Type':'application/json',
+        'Access-Control-Allow-Origin': '*'
+      })
+      // headers: headers
     }).then(res => res.json()).then(
         (result) => {
           console.log("OLE LOS CARACOLES");
