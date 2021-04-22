@@ -1,23 +1,32 @@
 import React, { useContext } from "react";
 import * as THREE from "three";
 // import * as THREE from './js/three.module.js';
+// import * as THREE from '../three.js/src/Three';
+
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { AppContext } from '../../State';
-import './DM-3dview.css'
+import './DM-3dview.css';
+// let render3D = webglRender(node,config);
 
 export class DM_3dview extends React.Component {
     constructor(props) {
       super(props)
-      // console.log("Props del contrusctor")
-      // console.log(props.image_base)
     }
+    
 
-    render() {
-
-      let createModel = () =>{
+    // componentDidMount(){
+    createModel = () =>{
         let stacy_model = this.props.image_base;
+        let canvasRef = this.canvas;
+        let jsloader = this.jsloader;
+
+        console.log("CAnvas refff")
+        console.log(this.canvas)
+
+        console.log(this.jsloader)
         
-        (function () {
+        
+        // (function () {
           // Set our main variables
           let scene,
           renderer,
@@ -31,32 +40,33 @@ export class DM_3dview extends React.Component {
           clock = new THREE.Clock(), // Used for anims, which run to a clock instead of frame rate 
           currentlyAnimating = false, // Used to check whether characters neck is being used in another anim
           raycaster = new THREE.Raycaster(), // Used to detect the click on our character
-          loaderAnim = document.getElementById('js-loader');
+          loaderAnim = jsloader
+          // loaderAnim = document.getElementById('js-loader');
         
           init();
         
           function init() {
-  
             console.log("Dentro del init")
+            console.log(loaderAnim)
         
             const MODEL_PATH = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/stacy_lightweight.glb';
-            // const canvas = document.querySelector('#c');
-            const canvas = document.getElementById('c');
+       
+            const canvas = canvasRef;
             const backgroundColor = 0xf1f1f1;
-  
-            console.log("model path ", MODEL_PATH)
-            console.log("canvas ", canvas)
-        
+
             // Init the scene
             scene = new THREE.Scene();
             scene.background = new THREE.Color(backgroundColor);
             scene.fog = new THREE.Fog(backgroundColor, 60, 100);
         
             // Init the renderer
-            renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+            renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); 
+
+
             renderer.shadowMap.enabled = true;
             renderer.setPixelRatio(window.devicePixelRatio);
             document.body.appendChild(renderer.domElement);
+ 
         
             // Add a camera
             camera = new THREE.PerspectiveCamera(
@@ -82,7 +92,6 @@ export class DM_3dview extends React.Component {
               map: stacy_txt,
               color: 0xffffff,
               skinning: true });
-        
         
         
             var loader = new GLTFLoader();
@@ -114,7 +123,12 @@ export class DM_3dview extends React.Component {
         
               scene.add(model);
         
-              loaderAnim.remove();
+              // this.jsloader.remove()
+              // console.log("Antes del remove")
+              // console.log(loaderAnim)
+              // loaderAnim.remove();
+              // loaderAnim.style.visibility = "hidden";
+              // ReactDOM.unmountComponentAtNode(loaderAnim);
         
               mixer = new THREE.AnimationMixer(model);
               let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'idle');
@@ -130,6 +144,7 @@ export class DM_3dview extends React.Component {
             function (error) {
               console.error(error);
             });
+
         
         
             // Add lights
@@ -151,6 +166,7 @@ export class DM_3dview extends React.Component {
             dirLight.shadow.camera.bottom = d * -1;
             // Add directional Light to scene
             scene.add(dirLight);
+   
         
         
             // Floor
@@ -165,11 +181,13 @@ export class DM_3dview extends React.Component {
             floor.receiveShadow = true;
             floor.position.y = -11;
             scene.add(floor);
+
         
             let geometry = new THREE.SphereGeometry(8, 32, 32);
             let material = new THREE.MeshBasicMaterial({ color: 0x9bffaf }); // 0xf2ce2e 
             let sphere = new THREE.Mesh(geometry, material);
-        
+
+
             sphere.position.z = -15;
             sphere.position.y = -2.5;
             sphere.position.x = -0.25;
@@ -191,9 +209,10 @@ export class DM_3dview extends React.Component {
             renderer.render(scene, camera);
             requestAnimationFrame(update);
           }
+
         
           update();
-        
+
           function resizeRendererToDisplaySize(renderer) {
             const canvas = renderer.domElement;
             let width = window.innerWidth;
@@ -208,6 +227,7 @@ export class DM_3dview extends React.Component {
             }
             return needResize;
           }
+
         
           document.addEventListener('mousemove', function (e) {
             var mousecoords = getMousePos(e);
@@ -272,21 +292,26 @@ export class DM_3dview extends React.Component {
             return { x: dx, y: dy };
           }
         
-        })();
+        // })();
       }
-        createModel();
+    // }
+
+    render() {
+      
+
+      
+        this.createModel();
 
         return(
             <div>
-                <div class="loading" id="js-loader"><div class="loader"></div></div>
-  
-                <div class="wrapper">
+                <div className="loading" id="js-loader" ref={ref => (this.jsloader = ref)}><div className="loader"></div></div>
+
+                <div className="wrapper">
                     {/* The canvas element is used to draw the 3D scene */}
-                <canvas id="c"></canvas>
+                <canvas id="c" ref={ref => (this.canvas = ref)}></canvas>
                 
                 </div>
-                <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js'></script>
-                <script src='https://cdn.jsdelivr.net/gh/mrdoob/Three.js@r92/examples/js/loaders/GLTFLoader.js'></script>
+              
             </div>
             
         )

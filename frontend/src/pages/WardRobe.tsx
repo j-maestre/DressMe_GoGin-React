@@ -50,7 +50,7 @@ const WardRobe: React.FC = () => {
             {/* Coger la imagen base del state y pasarsela al componente */}
 
 
-          <DM_3dview image_base = {state.base_model}/>
+          
           
           <section className="wardrobe__shop">
             <h2>Mi ropa</h2>
@@ -59,6 +59,15 @@ const WardRobe: React.FC = () => {
             <p className="wardrobe__shop__total">Total: </p>
             <IonButton className="wardrobe__shop__buy">Comprar ahora</IonButton>
           </section>
+          <div className="loading" id="js-loader"><div className="loader"></div></div>
+  
+          <div className="wrapper">
+              {/* The canvas element is used to draw the 3D scene */}
+            {/* <canvas ref = {this.canvas } id="c"></canvas> */}
+          
+          </div>
+          <div id="prueba"></div>
+          <DM_3dview image_base = {state.base_model}/>
 
           {/* <img src={image_base} id="imagen_muestra"/> */}
           
