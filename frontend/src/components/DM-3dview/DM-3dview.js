@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import * as THREE from "three";
-// import * as THREE from './js/three.module.js';
-// import * as THREE from '../three.js/src/Three';
 
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { AppContext } from '../../State';
 import './DM-3dview.css';
-// let render3D = webglRender(node,config);
+
+import circle_blue from './images/circle-solid_blue.svg';
+import circle_green from './images/circle-solid_green.svg';
+
 
 export class DM_3dview extends React.Component {
     constructor(props) {
@@ -134,6 +135,18 @@ export class DM_3dview extends React.Component {
               // ReactDOM.unmountComponentAtNode(loaderAnim);
         
               mixer = new THREE.AnimationMixer(model);
+
+              let clips = fileAnimations.filter(val => val.name !== 'idle');
+              possibleAnims = clips.map(val => {
+                let clip = THREE.AnimationClip.findByName(clips, val.name);
+        
+                clip.tracks.splice(3, 3);
+                clip.tracks.splice(9, 3);
+        
+                clip = mixer.clipAction(clip);
+                return clip;
+              });
+
               let idleAnim = THREE.AnimationClip.findByName(fileAnimations, 'idle');
         
               idleAnim.tracks.splice(3, 3);
@@ -231,6 +244,56 @@ export class DM_3dview extends React.Component {
             return needResize;
           }
 
+          window.addEventListener('click', e => raycast(e));
+          window.addEventListener('touchend', e => raycast(e, true));
+        
+          function raycast(e, touch = false) {
+            var mouse = {};
+            if (touch) {
+              mouse.x = 2 * (e.changedTouches[0].clientX / window.innerWidth) - 1;
+              mouse.y = 1 - 2 * (e.changedTouches[0].clientY / window.innerHeight);
+            } else {
+              mouse.x = 2 * (e.clientX / window.innerWidth) - 1;
+              mouse.y = 1 - 2 * (e.clientY / window.innerHeight);
+            }
+            // update the picking ray with the camera and mouse position
+            raycaster.setFromCamera(mouse, camera);
+        
+            // calculate objects intersecting the picking ray
+            var intersects = raycaster.intersectObjects(scene.children, true);
+        
+            if (intersects[0]) {
+              var object = intersects[0].object;
+        
+              if (object.name === 'stacy') {
+        
+                if (!currentlyAnimating) {
+                  currentlyAnimating = true;
+                  playOnClick();
+                }
+              }
+            }
+          }
+  
+    // Get a random animation, and play it 
+    function playOnClick() {
+      let anim = Math.floor(Math.random() * possibleAnims.length) + 0;
+      playModifierAnimation(idle, 0.25, possibleAnims[anim], 0.25);
+    }
+  
+  
+    function playModifierAnimation(from, fSpeed, to, tSpeed) {
+      to.setLoop(THREE.LoopOnce);
+      to.reset();
+      to.play();
+      from.crossFadeTo(to, fSpeed, true);
+      setTimeout(function () {
+        from.enabled = true;
+        to.crossFadeTo(from, tSpeed, true);
+        currentlyAnimating = false;
+      }, to._clip.duration * 1000 - (tSpeed + fSpeed) * 1000);
+    }
+
         
           document.addEventListener('mousemove', function (e) {
             var mousecoords = getMousePos(e);
@@ -306,7 +369,7 @@ export class DM_3dview extends React.Component {
         this.createModel();
 
         return(
-            <div>
+            <div className="model">
                 <div className="loading" id="js-loader" ref={ref => (this.jsloader = ref)}><div className="loader"></div></div>
 
                 <div className="wrapper">
@@ -314,6 +377,21 @@ export class DM_3dview extends React.Component {
                 <canvas id="c" ref={ref => (this.canvas = ref)}></canvas>
                 
                 </div>
+
+                <section className="colors">
+                  <div className="pantalones">
+                    <p>Pantalones</p>
+                    <img src={circle_blue}/>
+                    <img src={circle_green}/>
+                  </div>
+
+                  <div className="camiseta">
+                    <p>Camiseta</p>
+                    <img src={circle_blue}/>
+                    <img src={circle_green}/>
+                    {/* <i class="fas fa-circle"></i> */}
+                  </div>
+                </section>
               
             </div>
             

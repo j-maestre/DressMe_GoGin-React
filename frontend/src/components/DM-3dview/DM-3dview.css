@@ -55,6 +55,24 @@ html {
   display: block;
 }
 
+.model{
+  position: absolute;
+  display: flex;
+  top: 86%;
+}
+img{
+  width: 11%;
+  /* background-color: rgb(80, 180, 85); */
+}
+img:hover{
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 18px 9px rgba(189,189,189,1);
+  -moz-box-shadow: 0px 0px 18px 9px rgba(189,189,189,1);
+  box-shadow: 0px 0px 18px 9px rgba(189,189,189,1);
+}
+/* .blue{ */
+  /* background-color: rgb(44, 134, 252); */
+/* } */
 /* .loading {
   position: fixed;
   z-index: 50;

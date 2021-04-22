@@ -67,12 +67,13 @@ const WardRobe: React.FC = () => {
           
           </div>
           <div id="prueba"></div>
-          <DM_3dview image_base = {state.base_model}/>
+          
 
           {/* <img src={image_base} id="imagen_muestra"/> */}
           
           {/* <IonButton onClick={() => merge(image_base,pantalones_verdes,'imagen_muestra')}>Cambiar color de pantalones</IonButton> */}
         </div>
+        <DM_3dview image_base = {state.base_model}/>
 
       
       </IonContent>
