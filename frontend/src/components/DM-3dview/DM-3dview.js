@@ -23,7 +23,7 @@ export class DM_3dview extends React.Component {
         console.log("CAnvas refff")
         console.log(this.canvas)
 
-        console.log(this.jsloader)
+        // console.log(this.jsloader)
         
         
         // (function () {
@@ -47,7 +47,7 @@ export class DM_3dview extends React.Component {
         
           function init() {
             console.log("Dentro del init")
-            console.log(loaderAnim)
+            // console.log(loaderAnim)
         
             const MODEL_PATH = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/stacy_lightweight.glb';
        
@@ -85,7 +85,7 @@ export class DM_3dview extends React.Component {
             // Base original
             // 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/stacy.jpg'
             // stacy_model
-            let stacy_txt = new THREE.TextureLoader().load('https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/stacy.jpg');
+            let stacy_txt = new THREE.TextureLoader().load(stacy_model);
             stacy_txt.flipY = false;
         
             const stacy_mtl = new THREE.MeshPhongMaterial({
@@ -126,6 +126,9 @@ export class DM_3dview extends React.Component {
               // this.jsloader.remove()
               // console.log("Antes del remove")
               // console.log(loaderAnim)
+              if(loaderAnim){
+                loaderAnim.remove();
+              }
               // loaderAnim.remove();
               // loaderAnim.style.visibility = "hidden";
               // ReactDOM.unmountComponentAtNode(loaderAnim);
