@@ -8,6 +8,9 @@ import './DM-3dview.css';
 import circle_blue from './images/circle-solid_blue.svg';
 import circle_green from './images/circle-solid_green.svg';
 
+import merge from './merge_images/merge'
+import pantalones_verdes from './images/pantalones_verdes.png'
+
 
 export class DM_3dview extends React.Component {
     constructor(props) {
@@ -312,7 +315,7 @@ export class DM_3dview extends React.Component {
             let degrees = getMouseDegrees(mouse.x, mouse.y, degreeLimit);
             joint.rotation.y = THREE.Math.degToRad(degrees.x);
             joint.rotation.x = THREE.Math.degToRad(degrees.y);
-            console.log(joint.rotation.x);
+            // console.log(joint.rotation.x);
           }
         
           function getMouseDegrees(x, y, degreeLimit) {
@@ -382,13 +385,14 @@ export class DM_3dview extends React.Component {
                   <div className="pantalones">
                     <p>Pantalones</p>
                     <img src={circle_blue}/>
-                    <img src={circle_green}/>
+                    <img onClick={() => merge(this.props.image_base,pantalones_verdes,'imagen_muestra')} src={circle_green}/>
                   </div>
 
                   <div className="camiseta">
                     <p>Camiseta</p>
                     <img src={circle_blue}/>
                     <img src={circle_green}/>
+                    {/* <IonButton onClick={() => merge(image_base,pantalones_verdes,'imagen_muestra')}>Cambiar color de pantalones</IonButton> */}
                     {/* <i class="fas fa-circle"></i> */}
                   </div>
                 </section>

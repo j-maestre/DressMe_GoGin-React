@@ -8,7 +8,7 @@ const Login: React.FC = () => {
   return (
     <IonPage className="probando2">
       <IonHeader>
-        <IonToolbar className="probando">
+        <IonToolbar className="probando" color="dark">
           {/* <IonTitle>{logo}</IonTitle> */}
           <IonButtons slot="end">
             <NavButtons/>

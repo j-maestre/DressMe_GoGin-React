@@ -82,3 +82,8 @@ ion-label{
 .home-principal__subcontent__title{
     margin-left: 44%;
 }
+
+
+.probando, .probando2{
+    background-color: blue !important;
+}

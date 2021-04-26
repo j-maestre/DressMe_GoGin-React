@@ -8,7 +8,7 @@ const Shop: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="dark">
           {/* <IonTitle>PAGE ONE</IonTitle> */}
           <IonButtons slot="end">
             <NavButtons/>

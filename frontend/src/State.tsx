@@ -16,6 +16,7 @@ import React, { useReducer, useEffect } from "react";
 let AppContext = React.createContext(null);
 
 const initialState = {
+  theme: "dark",
   user: "",
   items: "",
   base_model: "hola"

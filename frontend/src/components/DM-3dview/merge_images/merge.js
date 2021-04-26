@@ -1,8 +1,8 @@
 import mergeImages from 'merge-images';
 
 // Images from 3dmodel
-import base from './model_base.png';
-import prueba from './ms-icon-310x310.png';
+// import base from './model_base.png';
+// import prueba from './ms-icon-310x310.png';
 
 
 //Recibimos la imagen base,
@@ -13,6 +13,7 @@ let merge = (base, clothing, id) => {
     console.log(base)
     mergeImages([base, clothing])
     .then(new_image => document.getElementById(id).src = new_image);
+    
 }
 
 export default merge;

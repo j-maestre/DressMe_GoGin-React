@@ -28,9 +28,11 @@
     color: var(--color-secondary);
 }
 
-/* div.toolbar-container{
-    background-color: var(--color-principal) !important;
-} */
+.menu-container{
+    /* background-color: var(--color-principal) !important; */
+    /* background-color: red; */
+    width: 100%;
+} 
 
 .oleeee{
     margin-left: 100px;
@@ -38,4 +40,8 @@
 
 .toolbar-background{
     background-color: var(--color-principal);
+}
+
+.toolbar-background{
+    background: blue !important;
 }
