@@ -8,8 +8,15 @@ import mergeImages from 'merge-images';
 
 import circle_blue from '../components/DM-3dview/images/circle-solid_blue.svg';
 import circle_green from '../components/DM-3dview/images/circle-solid_green.svg';
+import circle_orange from '../components/DM-3dview/images/circle-solid_orange.svg';
+import circle_grey from '../components/DM-3dview/images/circle-solid_grey.svg';
 
-import pantalones_verdes from '../components/DM-3dview/images/pantalones_verdes.png'
+
+
+import pantalones_verdes from '../components/DM-3dview/images/pantalones_verdes.png';
+import pantalones_azules from '../components/DM-3dview/images/pantalones_azules.png';
+import pantalones_naranja from '../components/DM-3dview/images/pantalones_naranja.png';
+import pantalones_gris from '../components/DM-3dview/images/pantalones_gris.png';
 
 
 const WardRobe: React.FC = () => {
@@ -90,8 +97,10 @@ const WardRobe: React.FC = () => {
         <section className="colors">
           <div className="pantalones">
             <p>Pantalones</p>
-            <img src={circle_blue}/>
-            <img onClick={() => merge(state.base_model,pantalones_verdes)} src={circle_green}/>
+            <img src={circle_blue} onClick={() => merge(state.base_model,pantalones_azules)}/>
+            <img src={circle_green} onClick={() => merge(state.base_model,pantalones_verdes)}/>
+            <img src={circle_orange} onClick={() => merge(state.base_model,pantalones_naranja)}/>
+            <img src={circle_grey} onClick={() => merge(state.base_model,pantalones_gris)}/>
 
             {/* onClick={() => merge(state.base_model,pantalones_verdes)} */}
           </div>
