@@ -36,7 +36,7 @@ import base_model from './components/DM-3dview/images/model_base.png';
 
 const Autoload = () => {
 
-  const { dispatch } = useContext(AppContext);
+  const { state, dispatch } = useContext(AppContext);
   useEffect(() => {
  
     toDataURL(base_model, function(dataUrl) {

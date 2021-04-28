@@ -1,37 +1,48 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton } from '@ionic/react';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Wardrobe.css';
 import { NavButtons } from '../components/NavButtons';
 import {DM_3dview} from '../components/DM-3dview/DM-3dview';
 import { AppContext } from '../State'
-// import merge from '../components/DM-3dview/merge_images/merge'
+import mergeImages from 'merge-images';
 
-// import image_base from '../components/DM-3dview/images/model_base.png';
-// import pantalones_verdes from '../components/DM-3dview/images/pantalones_verde_oscuro.png';
-// import mergeImages from 'merge-images';
-// import { State } from 'ionicons/dist/types/stencil-public-runtime';
+import circle_blue from '../components/DM-3dview/images/circle-solid_blue.svg';
+import circle_green from '../components/DM-3dview/images/circle-solid_green.svg';
+
+import pantalones_verdes from '../components/DM-3dview/images/pantalones_verdes.png'
 
 
 const WardRobe: React.FC = () => {
-  const { state } = useContext(AppContext);
-  // console.log("VAmos a ver el state")
-  // console.log(state.base_model)
 
+  // componentWillUnmount(){
 
-
-
-//   let merge = (base, clothing, id) => {
-//     mergeImages([base, clothing])
-//     .then(new_image => document.querySelector('img').src = new_image);
-// }
-
-  //imagen base, imagenes que queremos superponer, id de la etiqueta img
-  // merge(image_base,pantalones_verdes,'imagen_muestra');
-
-  // document.getElementById('cambia_color').onclick = () =>{
-  //   merge(image_base,pantalones_verdes,'imagen_muestra');
   // }
 
+  const { state } = useContext(AppContext);
+  const { base_model, setBase_model } = useContext(AppContext)
+  const { dispatch } = useContext(AppContext);
+
+
+  let merge = (base, clothing) =>{
+    
+    mergeImages([base, clothing])
+      .then(new_image =>  dispatch({type: 'SET_BASE',value: new_image}) );
+  }
+
+  // Convert image to base64
+  let toDataURL = (url, callback) => {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        callback(reader.result);
+      }
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open('GET', url);
+    xhr.responseType = 'blob';
+    xhr.send();
+  }
 
   return (
     <IonPage>
@@ -68,12 +79,31 @@ const WardRobe: React.FC = () => {
           </div>
           <div id="prueba"></div>
           
+          
 
           {/* <img src={image_base} id="imagen_muestra"/> */}
           
           {/* <IonButton onClick={() => merge(image_base,pantalones_verdes,'imagen_muestra')}>Cambiar color de pantalones</IonButton> */}
         </div>
+        <section className="wardrobe__model">
         <DM_3dview image_base = {state.base_model}/>
+        <section className="colors">
+          <div className="pantalones">
+            <p>Pantalones</p>
+            <img src={circle_blue}/>
+            <img onClick={() => merge(state.base_model,pantalones_verdes)} src={circle_green}/>
+
+            {/* onClick={() => merge(state.base_model,pantalones_verdes)} */}
+          </div>
+          <div className="camiseta">
+            <p>Camiseta</p>
+            <img src={circle_blue}/>
+            <img src={circle_green}/>
+            {/* <IonButton onClick={() => merge(image_base,pantalones_verdes,'imagen_muestra')}>Cambiar color de pantalones</IonButton> */}
+            {/* <i class="fas fa-circle"></i> */}
+          </div>
+        </section>
+        </section>
 
       
       </IonContent>

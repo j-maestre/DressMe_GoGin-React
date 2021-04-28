@@ -5,11 +5,11 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { AppContext } from '../../State';
 import './DM-3dview.css';
 
-import circle_blue from './images/circle-solid_blue.svg';
-import circle_green from './images/circle-solid_green.svg';
+// import circle_blue from './images/circle-solid_blue.svg';
+// import circle_green from './images/circle-solid_green.svg';
 
-import merge from './merge_images/merge'
-import pantalones_verdes from './images/pantalones_verdes.png'
+// import merge from './merge_images/merge'
+// import pantalones_verdes from './images/pantalones_verdes.png'
 
 
 export class DM_3dview extends React.Component {
@@ -23,6 +23,7 @@ export class DM_3dview extends React.Component {
         let stacy_model = this.props.image_base;
         let canvasRef = this.canvas;
         let jsloader = this.jsloader;
+        let model_root = this.model_root;
 
         console.log("CAnvas refff")
         console.log(this.canvas)
@@ -67,11 +68,13 @@ export class DM_3dview extends React.Component {
             renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); 
 
 
-            renderer.shadowMap.enabled = true;
-            renderer.setPixelRatio(window.devicePixelRatio);
+            renderer.shadowMap.enabled = true;  //Sombra del modelo
+            renderer.setPixelRatio(window.devicePixelRatio); //Añadimos el tamaño de la pantalla para el correcto renderizado del pantallas grandes y pequeñas
             document.body.appendChild(renderer.domElement);
- 
-        
+            // model_root.appendChild(renderer.domElement);
+            console.log("model root")
+            console.log(renderer.domElement)
+            console.log("fin model root")
             // Add a camera
             camera = new THREE.PerspectiveCamera(
             50,
@@ -378,24 +381,12 @@ export class DM_3dview extends React.Component {
                 <div className="wrapper">
                     {/* The canvas element is used to draw the 3D scene */}
                 <canvas id="c" ref={ref => (this.canvas = ref)}></canvas>
+                <div className="prueba" ref={ref => (this.model_root = ref)}></div>
+
                 
                 </div>
 
-                <section className="colors">
-                  <div className="pantalones">
-                    <p>Pantalones</p>
-                    <img src={circle_blue}/>
-                    <img onClick={() => merge(this.props.image_base,pantalones_verdes,'imagen_muestra')} src={circle_green}/>
-                  </div>
-
-                  <div className="camiseta">
-                    <p>Camiseta</p>
-                    <img src={circle_blue}/>
-                    <img src={circle_green}/>
-                    {/* <IonButton onClick={() => merge(image_base,pantalones_verdes,'imagen_muestra')}>Cambiar color de pantalones</IonButton> */}
-                    {/* <i class="fas fa-circle"></i> */}
-                  </div>
-                </section>
+               
               
             </div>
             
