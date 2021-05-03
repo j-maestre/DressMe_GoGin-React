@@ -5,13 +5,6 @@ import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { AppContext } from '../../State';
 import './DM-3dview.css';
 
-// import circle_blue from './images/circle-solid_blue.svg';
-// import circle_green from './images/circle-solid_green.svg';
-
-// import merge from './merge_images/merge'
-// import pantalones_verdes from './images/pantalones_verdes.png'
-
-
 export class DM_3dview extends React.Component {
     constructor(props) {
       super(props)
@@ -69,12 +62,12 @@ export class DM_3dview extends React.Component {
 
 
             renderer.shadowMap.enabled = true;  //Sombra del modelo
-            renderer.setPixelRatio(window.devicePixelRatio); //Añadimos el tamaño de la pantalla para el correcto renderizado del pantallas grandes y pequeñas
+            renderer.setPixelRatio(window.devicePixelRatio); //Añadimos el tamaño de la pantalla para el correcto renderizado de pantallas grandes y pequeñas
             document.body.appendChild(renderer.domElement);
-            // model_root.appendChild(renderer.domElement);
-            console.log("model root")
-            console.log(renderer.domElement)
-            console.log("fin model root")
+            // model_root = renderer.domElement;
+            // console.log("model root")
+            // console.log(renderer.domElement)
+            // console.log("fin model root")
             // Add a camera
             camera = new THREE.PerspectiveCamera(
             50,

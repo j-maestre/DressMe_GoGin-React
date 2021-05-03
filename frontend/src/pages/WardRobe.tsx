@@ -18,6 +18,11 @@ import pantalones_azules from '../components/DM-3dview/images/pantalones_azules.
 import pantalones_naranja from '../components/DM-3dview/images/pantalones_naranja.png';
 import pantalones_gris from '../components/DM-3dview/images/pantalones_gris.png';
 
+import camiseta_verde from '../components/DM-3dview/images/camiseta_verde.png';
+import camiseta_azul from '../components/DM-3dview/images/camiseta_azul.png';
+import camiseta_naranja from '../components/DM-3dview/images/camiseta_naranja.png';
+import camiseta_gris from '../components/DM-3dview/images/camiseta_gris.png';
+
 
 const WardRobe: React.FC = () => {
 
@@ -26,7 +31,7 @@ const WardRobe: React.FC = () => {
   // }
 
   const { state } = useContext(AppContext);
-  const { base_model, setBase_model } = useContext(AppContext)
+  // const { base_model, setBase_model } = useContext(AppContext)
   const { dispatch } = useContext(AppContext);
 
 
@@ -54,7 +59,7 @@ const WardRobe: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar color="dark">
           {/* <IonTitle>PAGE TWO</IonTitle> */}
           <IonButtons slot="end">
             <NavButtons/>
@@ -65,11 +70,6 @@ const WardRobe: React.FC = () => {
         
           <h1 className="wardrobe-header">Mi armario</h1>
           <div className="wardrobe">
-            {/* Coger la imagen base del state y pasarsela al componente */}
-
-
-          
-          
           <section className="wardrobe__shop">
             <h2>Mi ropa</h2>
             <div className="wardrobe__shop__container"></div>
@@ -77,23 +77,14 @@ const WardRobe: React.FC = () => {
             <p className="wardrobe__shop__total">Total: </p>
             <IonButton className="wardrobe__shop__buy">Comprar ahora</IonButton>
           </section>
-          <div className="loading" id="js-loader"><div className="loader"></div></div>
-  
-          <div className="wrapper">
-              {/* The canvas element is used to draw the 3D scene */}
-            {/* <canvas ref = {this.canvas } id="c"></canvas> */}
-          
-          </div>
-          <div id="prueba"></div>
-          
-          
+         
 
-          {/* <img src={image_base} id="imagen_muestra"/> */}
-          
-          {/* <IonButton onClick={() => merge(image_base,pantalones_verdes,'imagen_muestra')}>Cambiar color de pantalones</IonButton> */}
         </div>
         <section className="wardrobe__model">
+        <div id="prueba"></div>
+
         <DM_3dview image_base = {state.base_model}/>
+
         <section className="colors">
           <div className="pantalones">
             <p>Pantalones</p>
@@ -102,14 +93,14 @@ const WardRobe: React.FC = () => {
             <img src={circle_orange} onClick={() => merge(state.base_model,pantalones_naranja)}/>
             <img src={circle_grey} onClick={() => merge(state.base_model,pantalones_gris)}/>
 
-            {/* onClick={() => merge(state.base_model,pantalones_verdes)} */}
           </div>
           <div className="camiseta">
             <p>Camiseta</p>
-            <img src={circle_blue}/>
-            <img src={circle_green}/>
-            {/* <IonButton onClick={() => merge(image_base,pantalones_verdes,'imagen_muestra')}>Cambiar color de pantalones</IonButton> */}
-            {/* <i class="fas fa-circle"></i> */}
+            <img src={circle_blue} onClick={() => merge(state.base_model,camiseta_azul)}/>
+            <img src={circle_green} onClick={() => merge(state.base_model,camiseta_verde)}/>
+            <img src={circle_orange} onClick={() => merge(state.base_model,camiseta_naranja)}/>
+            <img src={circle_grey} onClick={() => merge(state.base_model,camiseta_gris)}/>
+
           </div>
         </section>
         </section>
