@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import * as THREE from "three";
 
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader.js'
@@ -8,6 +8,10 @@ import './DM-3dview.css';
 export class DM_3dview extends React.Component {
     constructor(props) {
       super(props)
+    }
+
+    componentWillUnmount() {
+      console.log("NOS VAMOOOOOOOOSSSSSSSSS")
     }
     
 
@@ -64,6 +68,7 @@ export class DM_3dview extends React.Component {
             renderer.shadowMap.enabled = true;  //Sombra del modelo
             renderer.setPixelRatio(window.devicePixelRatio); //Añadimos el tamaño de la pantalla para el correcto renderizado de pantallas grandes y pequeñas
             document.body.appendChild(renderer.domElement);
+            // model_root.appendChild(renderer.domElement);
             // model_root = renderer.domElement;
             // console.log("model root")
             // console.log(renderer.domElement)
@@ -362,12 +367,11 @@ export class DM_3dview extends React.Component {
     // }
 
     render() {
-      
 
-      
-        this.createModel();
+      this.createModel();
 
         return(
+          <>
             <div className="model">
                 <div className="loading" id="js-loader" ref={ref => (this.jsloader = ref)}><div className="loader"></div></div>
 
@@ -378,10 +382,8 @@ export class DM_3dview extends React.Component {
 
                 
                 </div>
-
-               
-              
             </div>
+            </>
             
         )
         

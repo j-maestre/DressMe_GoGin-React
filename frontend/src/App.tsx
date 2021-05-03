@@ -27,6 +27,7 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import Shop from './pages/Shop';
 import { Menu } from './components/Menu';
+import { Footer } from './components/Footer';
 import WardRobe from './pages/WardRobe';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -84,6 +85,7 @@ const App: React.FC = () => {
       <Autoload/>
         <IonReactRouter>
           <Menu/>
+          <Footer />
           <IonRouterOutlet  id="main">
             <Route path="/home" component={Home} exact={true} />
             <Route path="/shop" component={Shop} exact={true} />
@@ -94,6 +96,7 @@ const App: React.FC = () => {
             <Route path="/register" component={Register} exact={true} />
             <Route exact path="/" render={() => <Redirect to="/home" />} />
           </IonRouterOutlet>
+          
         </IonReactRouter>
       </IonApp>
       </AppContextProvider>
