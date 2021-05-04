@@ -19,7 +19,8 @@ const initialState = {
   theme: "dark",
   user: "",
   items: "",
-  base_model: "hola"
+  base_model: "hola",
+  prendas: []
 
 };
 
@@ -30,6 +31,9 @@ let reducer = (state, action) => {
     }
     case "SET_USER": {
       return { ...state, user: action.value };
+    }
+    case "SET_PRENDAS": {
+      return { ...state, prendas: action.value };
     }
     case "LOGOUT": {
       return { ...state, user: "" };

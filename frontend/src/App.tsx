@@ -26,6 +26,7 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 import Shop from './pages/Shop';
+import Detail from './pages/Detail';
 import { Menu } from './components/Menu';
 import { Footer } from './components/Footer';
 import WardRobe from './pages/WardRobe';
@@ -93,11 +94,13 @@ const App: React.FC = () => {
           <IonRouterOutlet  id="main">
             <Route path="/home" component={Home} exact={true} />
             <Route path="/shop" component={Shop} exact={true} />
+            <Route path="/shop/:slug" component={Detail} exact={false} />
             {/* <Route path="/offers" component={PageTwo} exact={true} /> */}
             {/* <Route path="/contact" component={PageTwo} exact={true} /> */}
             <Route path="/wardrobe" component={WardRobe} exact={true} />
             <Route path="/login" component={Login} exact={true} />
             <Route path="/register" component={Register} exact={true} />
+            
             <Route exact path="/" render={() => <Redirect to="/home" />} />
           </IonRouterOutlet>
           

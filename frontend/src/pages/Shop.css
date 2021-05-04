@@ -12,3 +12,8 @@
     width: 100%;
     height: 2px;
 }
+
+.shop__products{
+    display: flex;
+    flex-direction: row;
+}
