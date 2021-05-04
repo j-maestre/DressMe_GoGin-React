@@ -59,7 +59,7 @@ const WardRobe: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar color="dark">
+        <IonToolbar color={state.theme}>
           {/* <IonTitle>PAGE TWO</IonTitle> */}
           <IonButtons slot="end">
             <NavButtons/>

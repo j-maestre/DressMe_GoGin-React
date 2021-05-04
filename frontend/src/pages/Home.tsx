@@ -1,15 +1,18 @@
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButtons, IonButton, IonLabel } from '@ionic/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import './Home.css';
 import { NavButtons } from '../components/NavButtons';
 import logo from '../assets/img/principal-home.png'
 import DM_visited from '../components/DM-visited/DM-visited';
+import { State } from 'ionicons/dist/types/stencil-public-runtime';
+import { AppContext } from '../State';
 
 const Home: React.FC = () => {
+  const { state, dispatch } = useContext(AppContext);
   return (
     <IonPage className="probando2">
       <IonHeader>
-        <IonToolbar className="probando" color="dark">
+        <IonToolbar className="probando" color={state.theme}>
           {/* <IonTitle>{logo}</IonTitle> */}
           <IonButtons slot="end">
             <NavButtons/>

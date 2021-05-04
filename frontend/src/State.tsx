@@ -31,6 +31,9 @@ let reducer = (state, action) => {
     case "SET_USER": {
       return { ...state, user: action.value };
     }
+    case "LOGOUT": {
+      return { ...state, user: "" };
+    }
     case "SET_ITEMS": {
       return { ...state, items: action.value };
     }
@@ -68,6 +71,16 @@ function AppContextProvider(props) {
   };
 
   let [state, dispatch] = useReducer(loggerReducer, fullInitialState);
+  // SAVE IN LOCALSTORAGE THE LOGGED USER
+  useEffect(() => {
+    window.localStorage.setItem(
+      "persistedState",
+      JSON.stringify({
+        user: state.user,
+        theme: state.theme,
+      })
+    );
+  }, [state]);
   let value = { state, dispatch };
 
   return (
