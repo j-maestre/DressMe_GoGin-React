@@ -2,8 +2,13 @@
  
 ## How it works? 📖
 
-Find out about all the parties around you in this app! 
-You can also create your own parties and post them.
+¿Prueba tu ropa favorita desde tu propio avatar!
+
+## Live DEMO
+
+```
+dressme.surge.sh
+```
 
 ## Comenzando 🚀
 
@@ -62,6 +67,9 @@ sudo docker-compose up
 
 ```
 cd frontend
+```
+```
+npm install
 ```
 ```
 npm start
