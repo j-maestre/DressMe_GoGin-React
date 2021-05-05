@@ -16,7 +16,7 @@
     font-size: 400%;
 }
 
-img{
+.colors .pantalones img, .colors .camiseta img{
     width: 4%;
     /* background-color: rgb(80, 180, 85); */
   }

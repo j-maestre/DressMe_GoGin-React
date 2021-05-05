@@ -20,7 +20,8 @@ const initialState = {
   user: "",
   items: "",
   base_model: "hola",
-  prendas: []
+  prendas: [],
+  prenda: ""
 
 };
 
@@ -43,6 +44,9 @@ let reducer = (state, action) => {
     }
     case "SET_BASE": {
       return { ...state, base_model: action.value };
+    }
+    case "SET_PRENDA": {
+      return { ...state, prenda: action.value };
     }
   }
   return state;
@@ -82,6 +86,7 @@ function AppContextProvider(props) {
       JSON.stringify({
         user: state.user,
         theme: state.theme,
+        prenda: state.prenda
       })
     );
   }, [state]);

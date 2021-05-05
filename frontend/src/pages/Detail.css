@@ -1,0 +1,17 @@
+.details{
+    display: flex;
+    justify-content: center;
+}
+.details img{
+    width: 600px;
+}
+
+.details-line{
+    display: block;
+    width: 100%;
+    opacity: 0.5;
+}
+
+.details__caracteristics *{
+    margin: 20px;
+}

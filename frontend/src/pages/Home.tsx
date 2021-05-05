@@ -10,7 +10,7 @@ import { AppContext } from '../State';
 const Home: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
   return (
-    <IonPage className="probando2">
+    <IonPage>
       <IonHeader>
         <IonToolbar className="probando" color={state.theme}>
           {/* <IonTitle>{logo}</IonTitle> */}

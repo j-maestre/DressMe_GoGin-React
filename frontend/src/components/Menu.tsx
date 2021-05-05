@@ -54,7 +54,7 @@ export const Menu = () => {
               // Hay usuario logueado
               <>
                 <IonItem button routerLink={"/profile"} routerDirection="none">
-                  <img src="https://thispersondoesnotexist.com/image" />
+                  <img className="profile" src="https://thispersondoesnotexist.com/image" />
                 </IonItem>
                 <IonButton
                   onClick={logout}

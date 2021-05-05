@@ -13,22 +13,24 @@ import { AppContext } from "../../State";
 import muestra from "../../assets/img/muestra.png";
 import './DM-products_preview.css';
 
-type products_props = {
-  Slug: "";
-  user: 0;
-  mark: "";
-  Price: "";
-  Type: "";
-  Size: "";
-  Color: "";
-  gender: "";
-  season: "";
-  description: "";
-  rating: 0;
-};
+// type products_props = {
+//   Slug: "";
+//   user: 0;
+//   mark: "";
+//   Price: "";
+//   Type: "";
+//   Size: "";
+//   Color: "";
+//   gender: "";
+//   season: "";
+//   description: "";
+//   rating: 0;
+// };
 
 const DM_products_preview: React.FC<any> = (props) => {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
+
   const history = useHistory();
 
   const product = props.products_props;
@@ -38,9 +40,16 @@ const DM_products_preview: React.FC<any> = (props) => {
   console.log("PRODUCT: ", product);
   console.log("key: ", key);
 
+  let details = () =>{
+
+    dispatch({ type: "SET_PRENDA", value: product })
+    history.push(PRODUCT_DETAILS_PATH + product.Slug);
+
+  }
+
   return (
     <IonCard className="product__card">
-      <div onClick={() => history.push(PRODUCT_DETAILS_PATH + product.Slug)}><img src={muestra} /></div>
+      <div onClick={() => details()}><img src={muestra} /></div>
       <p>{product.Type}</p>
       <p>{product.rating}</p>
     </IonCard>

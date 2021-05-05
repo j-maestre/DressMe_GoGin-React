@@ -34,9 +34,9 @@ const Login: React.FC = () => {
 
   if (state.user) return <Redirect to="/home" />
   return (
-    <IonPage className="probando2">
+    <IonPage>
       <IonHeader>
-        <IonToolbar className="probando" color={state.theme}>
+        <IonToolbar color={state.theme}>
           {/* <IonTitle>{logo}</IonTitle> */}
           <IonButtons slot="end">
             <NavButtons/>

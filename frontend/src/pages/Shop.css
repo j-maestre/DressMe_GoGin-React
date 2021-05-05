@@ -1,3 +1,6 @@
+body {
+    background-color: rgb(0, 0, 0);
+  }
 .shop-header{
     width: 100%;
     display: flex;
