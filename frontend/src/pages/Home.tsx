@@ -6,8 +6,10 @@ import logo from '../assets/img/principal-home.png'
 import DM_visited from '../components/DM-visited/DM-visited';
 import { State } from 'ionicons/dist/types/stencil-public-runtime';
 import { AppContext } from '../State';
+import { useHistory } from "react-router-dom";
 
 const Home: React.FC = () => {
+  const history = useHistory();
   const { state, dispatch } = useContext(AppContext);
   return (
     <IonPage>
@@ -24,7 +26,7 @@ const Home: React.FC = () => {
         <img src={logo} alt="Logo" className="home-principal"/>
         <div className="home-principal__content">
           <IonLabel className="home-principal__content__title">Otoño & Invierno</IonLabel>
-          <IonButton routerLink={"/shop"} className="home-principal__content__buy-button">Comprar</IonButton>
+          <IonButton onClick={() =>history.push("/shop") } className="home-principal__content__buy-button">Comprar</IonButton>
         </div>
         <span className="home-principal__subcontent">
           <IonLabel className="home-principal__subcontent__title">Envios gratis en toda España</IonLabel>

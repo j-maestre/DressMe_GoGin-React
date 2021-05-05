@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import image from "../../assets/img/muestra.png";
 import { AppContext } from "../../State";
 import { prendas_service } from "../../Environment";
+import { useHistory } from "react-router-dom";
 import axios from 'axios';
+import prendas from '../../assets/data/items.json';
 // import { pinSharp, heartOutline, enterOutline } from 'ionicons/icons';
 
 import {
@@ -24,6 +26,7 @@ const DM_visited = (props: any) => {
   // const [error, setError] = useState(null);
   // const [isLoaded, setIsLoaded] = useState(false);
   // const [items, setItems] = useState([]);
+  const history = useHistory();
   let headers = new Headers();
   headers.append('Content-Type', 'application/json');
   headers.append('Accept', 'application/json');
@@ -72,19 +75,22 @@ const DM_visited = (props: any) => {
       )
   }, [])
 
+  console.log("AMO A VEEEEE")
+  console.log(prendas.items[0].Type)
+
   return (
     <IonCard className="visited-list">
       <section className="card-content">
           <section className="card-content__images">
-            <img src={image} alt="imagen" />
-            <img src={image} alt="imagen" />
-            <img src={image} alt="imagen" />
+            <img onClick={() =>history.push("/shop/"+prendas.items[0].Slug)} src={image} alt="imagen" />
+            <img onClick={() =>history.push("/shop/"+prendas.items[1].Slug)} src={image} alt="imagen" />
+            <img onClick={() =>history.push("/shop/"+prendas.items[2].Slug)} src={image} alt="imagen" />
           </section>
         
         <section className="card-content__buttons">
-            <IonButton routerLink={"/shop/id"} className="visited-first">Nombre prenda</IonButton>
-            <IonButton routerLink={"/shop/id"} className="visited-second">Nombre prenda</IonButton>
-            <IonButton routerLink={"/shop/id"} className="visited-third">Nombre prenda</IonButton>
+            <IonButton onClick={() =>history.push("/shop/"+prendas.items[0].Slug)} className="visited-first">{prendas.items[0].Type}</IonButton>
+            <IonButton onClick={() =>history.push("/shop/"+prendas.items[1].Slug)} className="visited-second">{prendas.items[1].Type}</IonButton>
+            <IonButton onClick={() =>history.push("/shop/"+prendas.items[2].Slug)} className="visited-third">{prendas.items[2].Type}</IonButton>
         </section>
         
         
