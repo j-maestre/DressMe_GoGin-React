@@ -37,9 +37,6 @@ const DM_products_preview: React.FC<any> = (props) => {
   const key = props.key;
   const PRODUCT_DETAILS_PATH = "/shop/";
 
-  console.log("PRODUCT: ", product);
-  console.log("key: ", key);
-
   let details = () =>{
 
     dispatch({ type: "SET_PRENDA", value: product })
@@ -49,7 +46,7 @@ const DM_products_preview: React.FC<any> = (props) => {
 
   return (
     <IonCard className="product__card">
-      <div onClick={() => details()}><img src={muestra} /></div>
+      <div onClick={() => details()}><img src={product.image} /></div>
       <p>{product.Type}</p>
       <p>{product.rating}</p>
     </IonCard>

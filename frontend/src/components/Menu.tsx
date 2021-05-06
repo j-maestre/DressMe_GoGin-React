@@ -27,11 +27,6 @@ export const Menu = () => {
   return (
     // Menu desplegable para movil
     <IonMenu side="end" contentId="main">
-      {/* <IonHeader> */}
-      {/* <IonToolbar color="dark"> */}
-      {/* <IonTitle>MENU</IonTitle> */}
-      {/* </IonToolbar> */}
-      {/* </IonHeader> */}
       <IonContent>
         <IonList>
           <IonMenuToggle auto-hide="false">

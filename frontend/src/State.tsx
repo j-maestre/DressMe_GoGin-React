@@ -19,9 +19,11 @@ const initialState = {
   theme: "dark",
   user: "",
   items: "",
-  base_model: "hola",
+  base_model: "",
   prendas: [],
-  prenda: ""
+  prenda: "",
+  path_camiseta: "https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_rayas/",
+  path_pantalones: ""
 
 };
 
@@ -36,6 +38,15 @@ let reducer = (state, action) => {
     case "SET_PRENDAS": {
       return { ...state, prendas: action.value };
     }
+    case "SET_PRENDA": {
+      return { ...state, prenda: action.value };
+    }
+    case "SET_PATH_CAMISETA": {
+      return { ...state, path_camiseta: action.value };
+    }
+    case "SET_PATH_PANTALONES": {
+      return { ...state, path_pantalones: action.value };
+    }
     case "LOGOUT": {
       return { ...state, user: "" };
     }
@@ -45,9 +56,7 @@ let reducer = (state, action) => {
     case "SET_BASE": {
       return { ...state, base_model: action.value };
     }
-    case "SET_PRENDA": {
-      return { ...state, prenda: action.value };
-    }
+    
   }
   return state;
 };
@@ -86,7 +95,10 @@ function AppContextProvider(props) {
       JSON.stringify({
         user: state.user,
         theme: state.theme,
-        prenda: state.prenda
+        prenda: state.prenda,
+        base_model: state.base_model,
+        path_camiseta: state.path_camiseta,
+        path_pantalones: state.path_pantalones
       })
     );
   }, [state]);

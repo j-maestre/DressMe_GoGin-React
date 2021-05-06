@@ -8,6 +8,8 @@ import "./NavButtons.css";
 export const NavButtons = () => {
   const history = useHistory();
   const { state, dispatch } = useContext(AppContext);
+
+  //Aqui especificamos si estamos en mobile o desktop
   const [mQuery, setMQuery] = React.useState<any>({
     matches: window.innerWidth > 768 ? true : false,
   });

@@ -11,59 +11,83 @@
             "gender": "male",
             "season": "summer",
             "description": "Very nice shirt and confortable",
-            "rating": 5
+            "rating": 5,
+            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_basica/camiseta_na.png",
+            "image3d":"https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_na_3d.png",
+            "path": "https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_basica/"
         },
         "1":{
+            "Slug": "shirt-8F2qN",
+            "user": 1,
+            "mark": "Mercadillo",
+            "Price": "4'99",
+            "Type": "shirt",
+            "Size": "M",
+            "Color": "black",
+            "gender": "female",
+            "season": "summer",
+            "description": "Very nice shirt and confortable",
+            "rating": 5,
+            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_rayas/camiseta.png",
+            "image3d":"https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_rayas/camiseta_base.png",
+            "path": "https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_rayas/"
+        },
+        "2":{
             "Slug": "trausers-8F2GR",
             "user": 1,
             "mark": "Sprinfield",
-            "Price": "19'99",
+            "Price": "40'99",
             "Type": "trausers",
             "Size": "M",
             "Color": "grey",
             "gender": "male",
             "season": "summer",
-            "description": "Very nice shirt and confortable",
-            "rating": 3
+            "description": "Very nice trausers and confortable",
+            "rating": 3,
+            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones.png"
         },
-        "2":{
+        "3":{
             "Slug": "shoes-8F2SB",
             "user": 1,
             "mark": "Sprinfield",
-            "Price": "19'99",
+            "Price": "75'99",
             "Type": "shoes",
             "Size": "M",
             "Color": "black",
             "gender": "male",
             "season": "summer",
-            "description": "Very nice shirt and confortable",
-            "rating": 1
+            "description": "Very nice shoes and confortable",
+            "rating": 1,
+            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/shoes.png"
         },
-        "3":{
+        "4":{
             "Slug": "shirt-8F2RR",
             "user": 1,
             "mark": "Sprinfield",
-            "Price": "19'99",
+            "Price": "9'99",
             "Type": "shirt",
             "Size": "M",
             "Color": "red",
             "gender": "female",
             "season": "summer",
             "description": "Very nice shirt and confortable",
-            "rating": 3
+            "rating": 3,
+            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_g.png",
+            "image3d":""
         },
-        "4":{
+        "5":{
             "Slug": "shirt-8F2GG",
             "user": 1,
             "mark": "Sprinfield",
-            "Price": "19'99",
+            "Price": "39'99",
             "Type": "shirt",
             "Size": "M",
             "Color": "green",
             "gender": "male",
             "season": "summer",
             "description": "Very nice shirt and confortable",
-            "rating": 4
+            "rating": 4,
+            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_ne.png"
         }
 
     }

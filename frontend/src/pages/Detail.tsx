@@ -13,8 +13,8 @@ import { useHistory } from "react-router-dom";
 import "./Detail.css";
 import { NavButtons } from "../components/NavButtons";
 import { AppContext } from "../State";
-import muestra from "../assets/img/muestra.png";
-
+import cami_naranja from "./camiseta_na_3d.png";
+import mergeImages from "merge-images";
 
 const Detail: React.FC = () => {
   const { state } = useContext(AppContext);
@@ -23,8 +23,35 @@ const Detail: React.FC = () => {
 
   let prenda = state.prenda;
 
-  console.log("PRENDA DETAILS");
-  console.log(prenda);
+  let dressme = () => {
+    toDataURL(prenda.image3d, function (dataUrl) {
+      merge(state.base_model, dataUrl);
+    });
+    //Cambiamos el path de la prenda
+    dispatch({ type: "SET_PATH_CAMISETA", value: prenda.path });
+    history.push("/wardrobe");
+  };
+
+  // Convert image to base64
+  let toDataURL = (url, callback) => {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+      var reader = new FileReader();
+      reader.onloadend = function () {
+        callback(reader.result);
+      };
+      reader.readAsDataURL(xhr.response);
+    };
+    xhr.open("GET", url);
+    xhr.responseType = "blob";
+    xhr.send();
+  };
+
+  let merge = (base, clothing) => {
+    mergeImages([base, clothing]).then((new_image) =>
+      dispatch({ type: "SET_BASE", value: new_image })
+    );
+  };
   return (
     <IonPage>
       <IonHeader>
@@ -37,7 +64,7 @@ const Detail: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <section className="details">
-          <img src={muestra} />
+          <img src={prenda.image} />
 
           <section className="details__caracteristics">
             <h2>{prenda.description}</h2>
@@ -47,7 +74,12 @@ const Detail: React.FC = () => {
             <ul>
               <li>{prenda.Size}</li>
             </ul>
-            <IonButton onClick={() =>history.push("/wardrobe") } className="details__caracteristics_dressme--btn">Dress Me!</IonButton>
+            <IonButton
+              onClick={() => dressme()}
+              className="details__caracteristics_dressme--btn"
+            >
+              Dress Me!
+            </IonButton>
           </section>
         </section>
       </IonContent>

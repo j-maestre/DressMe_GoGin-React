@@ -82,9 +82,9 @@ const DM_visited = (props: any) => {
     <IonCard className="visited-list">
       <section className="card-content">
           <section className="card-content__images">
-            <img onClick={() =>history.push("/shop/"+prendas.items[0].Slug)} src={image} alt="imagen" />
-            <img onClick={() =>history.push("/shop/"+prendas.items[1].Slug)} src={image} alt="imagen" />
-            <img onClick={() =>history.push("/shop/"+prendas.items[2].Slug)} src={image} alt="imagen" />
+            <img onClick={() =>history.push("/shop/"+prendas.items[0].Slug)} src={prendas.items[0].image} alt="imagen" />
+            <img onClick={() =>history.push("/shop/"+prendas.items[1].Slug)} src={prendas.items[1].image} alt="imagen" />
+            <img onClick={() =>history.push("/shop/"+prendas.items[2].Slug)} src={prendas.items[2].image} alt="imagen" />
           </section>
         
         <section className="card-content__buttons">
