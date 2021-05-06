@@ -75,9 +75,6 @@ const DM_visited = (props: any) => {
       )
   }, [])
 
-  console.log("AMO A VEEEEE")
-  console.log(prendas.items[0].Type)
-
   return (
     <IonCard className="visited-list">
       <section className="card-content">

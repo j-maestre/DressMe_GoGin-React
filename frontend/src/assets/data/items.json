@@ -44,9 +44,27 @@
             "season": "summer",
             "description": "Very nice trausers and confortable",
             "rating": 3,
-            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones.png"
+            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones_base/pantalones.png",
+            "image3d":"https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones_base/base.png",
+            "path": "https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones_base/"
         },
         "3":{
+            "Slug": "trausers-8F2GR",
+            "user": 1,
+            "mark": "Sprinfield",
+            "Price": "40'99",
+            "Type": "trausers",
+            "Size": "M",
+            "Color": "grey",
+            "gender": "male",
+            "season": "summer",
+            "description": "Very nice trausers and confortable",
+            "rating": 3,
+            "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones_vaqueros/pantalones.png",
+            "image3d":"https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones_vaqueros/base.png",
+            "path": "https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones_vaqueros/"
+        },
+        "4":{
             "Slug": "shoes-8F2SB",
             "user": 1,
             "mark": "Sprinfield",
@@ -60,7 +78,7 @@
             "rating": 1,
             "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/shoes.png"
         },
-        "4":{
+        "5":{
             "Slug": "shirt-8F2RR",
             "user": 1,
             "mark": "Sprinfield",
@@ -75,7 +93,7 @@
             "image":"https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_g.png",
             "image3d":""
         },
-        "5":{
+        "6":{
             "Slug": "shirt-8F2GG",
             "user": 1,
             "mark": "Sprinfield",

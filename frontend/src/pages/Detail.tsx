@@ -28,7 +28,17 @@ const Detail: React.FC = () => {
       merge(state.base_model, dataUrl);
     });
     //Cambiamos el path de la prenda
-    dispatch({ type: "SET_PATH_CAMISETA", value: prenda.path });
+    console.log("TIPO DE PRENDA");
+    console.log(prenda.Type);
+    switch (prenda.Type) {
+      case "shirt":
+        dispatch({ type: "SET_PATH_CAMISETA", value: prenda.path });
+        break;
+      case "trausers":
+        dispatch({ type: "SET_PATH_PANTALONES", value: prenda.path });
+        break;
+    }
+
     history.push("/wardrobe");
   };
 

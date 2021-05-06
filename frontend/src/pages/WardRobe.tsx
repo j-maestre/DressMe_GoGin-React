@@ -34,16 +34,8 @@ const WardRobe: React.FC = () => {
   const PATH_CAMISETA = state.path_camiseta;
   const PATH_PANTALONES = state.path_pantalones;
 
-  let merge_camiseta = (base, clothing) => {
-    toDataURL(PATH_CAMISETA + clothing, function (dataUrl) {
-      mergeImages([base, dataUrl]).then((new_image) =>
-        dispatch({ type: "SET_BASE", value: new_image })
-      );
-    });
-  };
-
-  let merge = (base, clothing) => {
-    toDataURL(PATH_PANTALONES + clothing, function (dataUrl) {
+  let merge = (base, clothing, path) => {
+    toDataURL(path + clothing, function (dataUrl) {
       mergeImages([base, dataUrl]).then((new_image) =>
         dispatch({ type: "SET_BASE", value: new_image })
       );
@@ -84,38 +76,38 @@ const WardRobe: React.FC = () => {
                 <p>Pantalones</p>
                 <img
                   src={circle_blue}
-                  onClick={() => merge(state.base_model, pantalones_azules)}
+                  onClick={() => merge(state.base_model, "azul.png", PATH_PANTALONES)}
                 />
                 <img
                   src={circle_green}
-                  onClick={() => merge(state.base_model, pantalones_verdes)}
+                  onClick={() => merge(state.base_model, "verde.png", PATH_PANTALONES)}
                 />
                 <img
                   src={circle_orange}
-                  onClick={() => merge(state.base_model, pantalones_naranja)}
+                  onClick={() => merge(state.base_model, "naranja.png", PATH_PANTALONES)}
                 />
                 <img
                   src={circle_grey}
-                  onClick={() => merge(state.base_model, pantalones_gris)}
+                  onClick={() => merge(state.base_model, "gris.png", PATH_PANTALONES)}
                 />
               </div>
               <div className="camiseta">
                 <p>Camiseta</p>
                 <img
                   src={circle_blue}
-                  onClick={() => merge_camiseta(state.base_model, "azul.png")}
+                  onClick={() => merge(state.base_model, "azul.png", PATH_CAMISETA)}
                 />
                 <img
                   src={circle_green}
-                  onClick={() => merge_camiseta(state.base_model, "verde.png")}
+                  onClick={() => merge(state.base_model, "verde.png", PATH_CAMISETA)}
                 />
                 <img
                   src={circle_orange}
-                  onClick={() => merge_camiseta(state.base_model, "naranja.png")}
+                  onClick={() => merge(state.base_model, "naranja.png", PATH_CAMISETA)}
                 />
                 <img
                   src={circle_grey}
-                  onClick={() => merge_camiseta(state.base_model, "gris.png")}
+                  onClick={() => merge(state.base_model, "gris.png", PATH_CAMISETA)}
                 />
               </div>
             </section>
