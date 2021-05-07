@@ -10,22 +10,9 @@ import {
 } from "@ionic/react";
 import { useHistory } from "react-router-dom";
 import { AppContext } from "../../State";
-import muestra from "../../assets/img/muestra.png";
+import star from "../../assets/img/star.svg";
 import './DM-products_preview.css';
 
-// type products_props = {
-//   Slug: "";
-//   user: 0;
-//   mark: "";
-//   Price: "";
-//   Type: "";
-//   Size: "";
-//   Color: "";
-//   gender: "";
-//   season: "";
-//   description: "";
-//   rating: 0;
-// };
 
 const DM_products_preview: React.FC<any> = (props) => {
   const { state } = useContext(AppContext);
@@ -48,7 +35,7 @@ const DM_products_preview: React.FC<any> = (props) => {
     <IonCard className="product__card">
       <div onClick={() => details()}><img src={product.image} /></div>
       <p>{product.Type}</p>
-      <p>{product.rating}</p>
+      <p>{product.rating}<img className="star" src={star} /></p>
     </IonCard>
   );
 };

@@ -1,31 +1,32 @@
-.viewer-content{
-    width: 60%;
-    height: 60%;
-    border-width: 2px;
-    border-style: solid;
-    border-color: black;     
+.viewer-content {
+  width: 60%;
+  height: 60%;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
 }
 
-.wardrobe-header{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    /* margin-left: 40%; */
-    margin-top: 5%;
-    font-family: var(--font-family);
-    font-size: 400%;
+.wardrobe-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  /* margin-left: 40%; */
+  margin-top: 5%;
+  font-family: var(--font-family);
+  font-size: 400%;
 }
 
-.colors .pantalones img, .colors .camiseta img{
-    width: 4%;
-    /* background-color: rgb(80, 180, 85); */
-  }
-  img:hover{
-    cursor: pointer;
-    -webkit-box-shadow: 0px 0px 18px 9px rgba(189,189,189,1);
-    -moz-box-shadow: 0px 0px 18px 9px rgba(189,189,189,1);
-    box-shadow: 0px 0px 18px 9px rgba(189,189,189,1);
-  }
-.colors{
-    margin-top: 33%;
+.colors .pantalones img,
+.colors .camiseta img {
+  width: 4%;
+  /* background-color: rgb(80, 180, 85); */
+}
+.pantalones img:hover, .camiseta img:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 18px 9px rgba(189, 189, 189, 1);
+  -moz-box-shadow: 0px 0px 18px 9px rgba(189, 189, 189, 1);
+  box-shadow: 0px 0px 18px 9px rgba(189, 189, 189, 1);
+}
+.colors {
+  margin-top: 33%;
 }

@@ -1,3 +1,13 @@
 .logout {
   width: 25%;
 }
+
+.logo{
+  width: 100px;
+  /* position: absolute; */
+  /* margin-left: -50%; */
+}
+
+.logo:hover{
+  cursor: pointer;
+}

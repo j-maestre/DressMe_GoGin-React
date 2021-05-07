@@ -4,13 +4,11 @@
 
 }
 
-.logo{
-    /* background-color: red; */
+/* .logo{
     background-image: url('../assets/img/dm-logo.svg');
     width: 40px;
     height: 40px;
-    margin-left: 0px;
-}
+} */
 
 .menu-container{
     display: flex;
@@ -29,16 +27,5 @@
 }
 
 .menu-container{
-    /* background-color: var(--color-principal) !important; */
-    /* background-color: red; */
     width: 100%;
 } 
-
-
-.toolbar-background{
-    background-color: var(--color-principal);
-}
-
-.toolbar-background{
-    background: blue !important;
-}

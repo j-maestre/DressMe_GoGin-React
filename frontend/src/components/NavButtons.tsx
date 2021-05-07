@@ -4,6 +4,7 @@ import { AppContext } from "../State";
 import { useHistory } from "react-router-dom";
 import log_out from "../assets/img/log-out.svg";
 import "./NavButtons.css";
+import logo from '../assets/img/logo.svg';
 
 export const NavButtons = () => {
   const history = useHistory();
@@ -38,12 +39,13 @@ export const NavButtons = () => {
           // Menu desktop
           <>
             <div className="menu-container">
-              <IonButton
-                class="nav-button"
+              <img
+                // className="nav-button"
+                src={logo}
                 onClick={() =>history.push("/home") }
                 className="logo"
 
-              ></IonButton>
+              ></img>
               <IonButton class="nav-button" onClick={() =>history.push("/home") }>
                 Home{" "}
               </IonButton>
