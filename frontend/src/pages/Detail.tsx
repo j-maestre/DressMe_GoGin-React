@@ -31,11 +31,13 @@ const Detail: React.FC = () => {
     console.log("TIPO DE PRENDA");
     console.log(prenda.Type);
     switch (prenda.Type) {
-      case "shirt":
+      case "Shirt":
         dispatch({ type: "SET_PATH_CAMISETA", value: prenda.path });
+        dispatch({ type: "SET_PRENDAS", value: prenda });
         break;
       case "trausers":
         dispatch({ type: "SET_PATH_PANTALONES", value: prenda.path });
+        dispatch({ type: "SET_PRENDAS", value: prenda});
         break;
     }
 

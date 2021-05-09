@@ -21,7 +21,8 @@
   width: 4%;
   /* background-color: rgb(80, 180, 85); */
 }
-.pantalones img:hover, .camiseta img:hover {
+.pantalones img:hover,
+.camiseta img:hover {
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 18px 9px rgba(189, 189, 189, 1);
   -moz-box-shadow: 0px 0px 18px 9px rgba(189, 189, 189, 1);
@@ -29,4 +30,19 @@
 }
 .colors {
   margin-top: 33%;
+}
+
+.wardrobe--line {
+  border-bottom: 2px solid var(--ion-color-primary);
+  width: 15%;
+  /* height: 10px; */
+}
+
+.wardrobe__shop__container__camiseta, .wardrobe__shop__container__pantalon{
+  display: flex;
+  justify-content: flex-start;
+}
+
+.wardrobe__shop__container__camiseta p, .wardrobe__shop__container__pantalon p{
+  margin:10px;
 }

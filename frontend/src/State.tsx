@@ -1,15 +1,3 @@
-/**
- * This is a simple redux-like state management pattern for React using hooks
- * that might be useful in your simpler Ionic React apps that don't
- * require something as complex as Redux.
- *
- * See each page for an example of how to read from state and
- * dispatch actions.
- *
- * Learn more:
- * https://ionicframework.com/blog/a-state-management-pattern-for-ionic-react-with-react-hooks/
- */
-
 import React, { useReducer, useEffect } from "react";
 
 
@@ -20,10 +8,14 @@ const initialState = {
   user: "",
   items: "",
   base_model: "",
-  prendas: [],
+  prendas: {
+    "camiseta":"",
+    "pantalon":"",
+    "zapatos":""
+  },
   prenda: "",
   path_camiseta: "https://raw.githubusercontent.com/j-maestre/images/main/Images/camiseta_rayas/",
-  path_pantalones: ""
+  path_pantalones: "https://raw.githubusercontent.com/j-maestre/images/main/Images/pantalones_base/"
 
 };
 
@@ -36,7 +28,17 @@ let reducer = (state, action) => {
       return { ...state, user: action.value };
     }
     case "SET_PRENDAS": {
-      return { ...state, prendas: action.value };
+      let new_prendas = {...state};
+
+      if(action.value.Type == "Shirt"){
+        new_prendas.prendas.camiseta = action.value;
+        return { ...state, prendas: new_prendas.prendas };
+        
+      }else if(action.value.Type == "trausers"){
+        new_prendas.prendas.pantalon = action.value;
+        return { ...state, prendas: new_prendas.prendas };
+      }
+      
     }
     case "SET_PRENDA": {
       return { ...state, prenda: action.value };
@@ -95,6 +97,7 @@ function AppContextProvider(props) {
       JSON.stringify({
         user: state.user,
         theme: state.theme,
+        prendas: state.prendas,
         prenda: state.prenda,
         base_model: state.base_model,
         path_camiseta: state.path_camiseta,
