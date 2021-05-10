@@ -2,7 +2,6 @@ import {
   IonContent,
   IonHeader,
   IonPage,
-  IonTitle,
   IonToolbar,
   IonButtons,
   IonButton,
@@ -19,10 +18,6 @@ import circle_green from "../components/DM-3dview/images/circle-solid_green.svg"
 import circle_orange from "../components/DM-3dview/images/circle-solid_orange.svg";
 import circle_grey from "../components/DM-3dview/images/circle-solid_grey.svg";
 
-import pantalones_verdes from "../components/DM-3dview/images/pantalones_verdes.png";
-import pantalones_azules from "../components/DM-3dview/images/pantalones_azules.png";
-import pantalones_naranja from "../components/DM-3dview/images/pantalones_naranja.png";
-import pantalones_gris from "../components/DM-3dview/images/pantalones_gris.png";
 
 const WardRobe: React.FC = () => {
   // componentWillUnmount(){
@@ -34,9 +29,6 @@ const WardRobe: React.FC = () => {
   const PATH_CAMISETA = state.path_camiseta;
   const PATH_PANTALONES = state.path_pantalones;
 
-  console.log("A ve rque hay en el armario...................");
-  console.log(state.prendas);
-
   let totalPrice = 0;
   if (state.prendas.camiseta.Price) {
     totalPrice += state.prendas.camiseta.Price;
@@ -47,6 +39,7 @@ const WardRobe: React.FC = () => {
   if (state.prendas.zapatos.Price) {
     totalPrice += state.prendas.zapatos.Price;
   }
+  let totalPriceFormated = (Math.round(totalPrice * 100) / 100).toFixed(2);
 
   let merge = (base, clothing, path) => {
     toDataURL(path + clothing, function (dataUrl) {
@@ -75,7 +68,6 @@ const WardRobe: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar color={state.theme}>
-          {/* <IonTitle>PAGE TWO</IonTitle> */}
           <IonButtons slot="end">
             <NavButtons />
           </IonButtons>
@@ -156,7 +148,9 @@ const WardRobe: React.FC = () => {
             </section>
             <span className="line wardrobe--line"></span>
             <section className=""></section>
-            <h3 className="wardrobe__shop__total">Total: {totalPrice}€</h3>
+            <h3 className="wardrobe__shop__total">
+              Total: {totalPriceFormated}€
+            </h3>
 
             <IonButton className="wardrobe__shop__buy">Comprar ahora</IonButton>
           </section>

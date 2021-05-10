@@ -1,8 +1,5 @@
 import {
   IonMenu,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
   IonContent,
   IonList,
   IonMenuToggle,
@@ -10,7 +7,7 @@ import {
   IonLabel,
   IonButton
 } from "@ionic/react";
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../State";
 import { useHistory } from "react-router-dom";
 import log_out from "../assets/img/log-out.svg";

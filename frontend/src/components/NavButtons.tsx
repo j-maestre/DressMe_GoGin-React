@@ -27,9 +27,6 @@ export const NavButtons = () => {
     history.push("/home")
   };
 
-  // MediaQueryListEvent { isTrusted: true, media: "(min-width: 768px)", matches: true ...}
-  // console.log(mQuery.matches);
-
   return (
     <header>
       <div>
@@ -40,7 +37,6 @@ export const NavButtons = () => {
           <>
             <div className="menu-container">
               <img
-                // className="nav-button"
                 src={logo}
                 onClick={() =>history.push("/home") }
                 className="logo"

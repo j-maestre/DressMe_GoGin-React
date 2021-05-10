@@ -21,8 +21,6 @@ const Register: React.FC = () => {
     e.preventDefault();
 
     try{
-      console.log("-------------------------")
-      console.log("username: ",username)
       if(password == password2){
         console.log("contraseñas correctas")
       }else{
@@ -50,7 +48,6 @@ const Register: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
-        {/* TODO */}
         <IonLoading isOpen={showLoading} message={'Logging in'} onDidDismiss={() => setShowLoading(false)} />
         <section className="login-header">
             <img src={logo} alt="D" className="login-header__image"/>

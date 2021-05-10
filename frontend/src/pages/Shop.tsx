@@ -2,7 +2,6 @@ import {
   IonContent,
   IonHeader,
   IonPage,
-  IonTitle,
   IonToolbar,
   IonButtons,
   IonLabel,
@@ -14,7 +13,7 @@ import DM_products from "../components/DM-products/DM-products";
 import { AppContext } from "../State";
 
 const Shop: React.FC = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   return (
     <IonPage>
       <IonHeader>

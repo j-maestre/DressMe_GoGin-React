@@ -1,13 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import {
-  IonCard,
-  IonCardContent,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonIcon,
-  IonButton,
-  IonList,
-} from "@ionic/react";
+import { IonCard } from "@ionic/react";
 import { useHistory } from "react-router-dom";
 import { AppContext } from "../../State";
 import star from "../../assets/img/star.svg";
@@ -20,7 +12,6 @@ const DM_products_preview: React.FC<any> = (props) => {
   const history = useHistory();
 
   const product = props.products_props;
-  const key = props.key;
   const PRODUCT_DETAILS_PATH = "/shop/";
 
   let details = () => {

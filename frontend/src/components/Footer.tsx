@@ -48,7 +48,6 @@ import {
             
         </IonToolbar>
         </div>
-        {/* Por que coño tienes el footer arroba? */}
     </>
     );
   };

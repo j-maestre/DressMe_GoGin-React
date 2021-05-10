@@ -1,19 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
-import image from "../../assets/img/muestra.png";
 import { AppContext } from "../../State";
 import { prendas_service } from "../../Environment";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 import prendas from "../../assets/data/items.json";
-// import { pinSharp, heartOutline, enterOutline } from 'ionicons/icons';
+
 
 import {
   IonCard,
-  IonCardContent,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonIcon,
   IonButton,
 } from "@ionic/react";
 import "./DM-visited.css";
@@ -21,11 +14,6 @@ import "./DM-visited.css";
 const DM_visited = (props: any) => {
   const { state } = useContext(AppContext);
   const { dispatch } = useContext(AppContext);
-  // const { state } = useContext(AppContext);
-  // const Props = props;
-  // const [error, setError] = useState(null);
-  // const [isLoaded, setIsLoaded] = useState(false);
-  // const [items, setItems] = useState([]);
   const history = useHistory();
   let headers = new Headers();
   headers.append("Content-Type", "application/json");
@@ -41,19 +29,9 @@ const DM_visited = (props: any) => {
     "GET, POST, PUT, DELETE, OPTIONS"
   );
   headers.append("Transfer-Encoding", "chunked");
-  // headers.append('GET', 'POST', 'OPTIONS');
-
-  // console.log("HEADERS");
-  // console.log(headers);
 
   useEffect(() => {
-    // axios.get(prendas_service, //proxy uri
-    // {
-    //   headers: headers
-    // }).then(function (response) {
-    //   console.log("OLE LOS CARACOLES")
-    //   console.log(response);
-    // });
+
 
     fetch(prendas_service, {
       mode: "cors",
@@ -69,24 +47,17 @@ const DM_visited = (props: any) => {
       .then((res) => res.json())
       .then(
         (result) => {
-          console.log("OLE LOS CARACOLES");
+
           console.log(result);
         },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
         (error) => {
           console.log("ERROR");
           console.log(error);
-          // setError(error);
         }
       );
   }, []);
 
   let details = (prenda) => {
-    console.log("PRENDAAAAAAAa")
-    console.log(prenda.items)
-
     dispatch({ type: "SET_PRENDA", value: prenda })
     history.push("/shop/" + prenda.Slug)
   };

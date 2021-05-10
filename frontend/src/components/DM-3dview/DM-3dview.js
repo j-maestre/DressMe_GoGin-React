@@ -11,7 +11,7 @@ export class DM_3dview extends React.Component {
     }
 
     componentWillUnmount() {
-      console.log("NOS VAMOOOOOOOOSSSSSSSSS")
+
     }
     
 
@@ -22,14 +22,6 @@ export class DM_3dview extends React.Component {
         let jsloader = this.jsloader;
         let model_root = this.model_root;
 
-        console.log("CAnvas refff")
-        console.log(this.canvas)
-
-        // console.log(this.jsloader)
-        
-        
-        // (function () {
-          // Set our main variables
           let scene,
           renderer,
           camera,
@@ -48,13 +40,11 @@ export class DM_3dview extends React.Component {
           init();
         
           function init() {
-            console.log("Dentro del init")
-            // console.log(loaderAnim)
         
             const MODEL_PATH = 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/stacy_lightweight.glb';
        
             const canvas = canvasRef;
-            const backgroundColor = 0xf1f1f1;
+            const backgroundColor = "255, 255, 255, .4";
 
             // Init the scene
             scene = new THREE.Scene();
@@ -68,11 +58,7 @@ export class DM_3dview extends React.Component {
             renderer.shadowMap.enabled = true;  //Sombra del modelo
             renderer.setPixelRatio(window.devicePixelRatio); //Añadimos el tamaño de la pantalla para el correcto renderizado de pantallas grandes y pequeñas
             document.body.appendChild(renderer.domElement);
-            // model_root.appendChild(renderer.domElement);
-            // model_root = renderer.domElement;
-            // console.log("model root")
-            // console.log(renderer.domElement)
-            // console.log("fin model root")
+  
             // Add a camera
             camera = new THREE.PerspectiveCamera(
             50,
@@ -86,9 +72,6 @@ export class DM_3dview extends React.Component {
   
         
             // IMAGEN BASE
-  
-            // Base original
-            // 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/1376484/stacy.jpg'
             // stacy_model
             let stacy_txt = new THREE.TextureLoader().load(stacy_model);
             stacy_txt.flipY = false;
@@ -127,15 +110,9 @@ export class DM_3dview extends React.Component {
               model.position.y = -11;
         
               scene.add(model);
-        
-              // this.jsloader.remove()
-              // console.log("Antes del remove")
-              // console.log(loaderAnim)
               if(loaderAnim){
                 loaderAnim.remove();
               }
-              // loaderAnim.remove();
-              // loaderAnim.style.visibility = "hidden";
               // ReactDOM.unmountComponentAtNode(loaderAnim);
         
               mixer = new THREE.AnimationMixer(model);
@@ -316,7 +293,6 @@ export class DM_3dview extends React.Component {
             let degrees = getMouseDegrees(mouse.x, mouse.y, degreeLimit);
             joint.rotation.y = THREE.Math.degToRad(degrees.x);
             joint.rotation.x = THREE.Math.degToRad(degrees.y);
-            // console.log(joint.rotation.x);
           }
         
           function getMouseDegrees(x, y, degreeLimit) {

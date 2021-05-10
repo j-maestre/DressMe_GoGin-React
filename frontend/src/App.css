@@ -1,17 +1,9 @@
-/* .card-content__buttons{
-    display: flex;
-    flex-direction: row;
-    background-color: azure;
-    border-radius: 20px 20px;
-} */
-
-.line{
-    border-bottom: 2px solid var(--ion-color-primary);
+.line {
+  border-bottom: 2px solid var(--ion-color-primary);
 }
 
 .profile {
-    margin-left: 10px;
-    width: 60px;
-    border-radius: 50%;
-  }
-  
+  margin-left: 10px;
+  width: 60px;
+  border-radius: 50%;
+}

@@ -4,12 +4,6 @@
 
 }
 
-/* .logo{
-    background-image: url('../assets/img/dm-logo.svg');
-    width: 40px;
-    height: 40px;
-} */
-
 .menu-container{
     display: flex;
     flex-direction: row;

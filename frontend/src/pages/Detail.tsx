@@ -13,7 +13,6 @@ import { useHistory } from "react-router-dom";
 import "./Detail.css";
 import { NavButtons } from "../components/NavButtons";
 import { AppContext } from "../State";
-import cami_naranja from "./camiseta_na_3d.png";
 import mergeImages from "merge-images";
 
 const Detail: React.FC = () => {
@@ -28,8 +27,6 @@ const Detail: React.FC = () => {
       merge(state.base_model, dataUrl);
     });
     //Cambiamos el path de la prenda
-    console.log("TIPO DE PRENDA");
-    console.log(prenda.Type);
     switch (prenda.Type) {
       case "Shirt":
         dispatch({ type: "SET_PATH_CAMISETA", value: prenda.path });

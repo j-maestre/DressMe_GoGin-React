@@ -22,12 +22,6 @@
     justify-content: space-around;
 }
 
-.home-principal__content__title{
-    /* color:var(--ion-color-primary); */
-    
-    
-}
-
 .home-principal__content__buy-button{
     /* background:black ; */
     transition: 1s;

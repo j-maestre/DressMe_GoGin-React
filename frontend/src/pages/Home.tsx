@@ -4,13 +4,12 @@ import './Home.css';
 import { NavButtons } from '../components/NavButtons';
 import logo from '../assets/img/principal-home.png'
 import DM_visited from '../components/DM-visited/DM-visited';
-import { State } from 'ionicons/dist/types/stencil-public-runtime';
 import { AppContext } from '../State';
 import { useHistory } from "react-router-dom";
 
 const Home: React.FC = () => {
   const history = useHistory();
-  const { state, dispatch } = useContext(AppContext);
+  const { state } = useContext(AppContext);
   return (
     <IonPage>
       <IonHeader>

@@ -44,21 +44,11 @@ const Autoload = () => {
     dispatch({type:'SET_STATE',value:JSON.parse(window.localStorage.getItem("persistedState"))});
 
     toDataURL(base_model, function(dataUrl) {
-      // console.log('RESULT:', dataUrl)
-
       dispatch({type: 'SET_BASE',value: dataUrl}) 
       return dataUrl;
     })
-
-    
-
-    // console.log("IMAGE BASE")
-    // console.log(image_base)
-    
-    
   },[]);
 
-  
   return (<></>);
 }
 
