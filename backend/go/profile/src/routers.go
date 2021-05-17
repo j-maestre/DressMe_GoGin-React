@@ -31,6 +31,7 @@ func ProfileCreate(c *gin.Context){
 	fmt.Println("DENTRO DE CREATE PROFILE") 
 	var profile Profile
 	c.BindJSON(&profile);
+	// fmt.Println(profile)
 
 	myUserModel := c.MustGet("my_user_model").(User)
 	profile.User = myUserModel.ID;
@@ -67,12 +68,8 @@ func ProfileList(c *gin.Context) {
 
 ///////// Find ONE
 func ProfileById(c *gin.Context) {
-	// id := c.Params.ByName("id")	
 	myUserModel := c.MustGet("my_user_model").(User)  //Id del usuario al que queremos buscar
-	
-	// id := User.Id
 
-	// id := 1
 	var profile Profile
 	err := GetProfileById(&profile, myUserModel.ID)
 	
@@ -95,7 +92,7 @@ func ProfileUpdate(c *gin.Context){
 	fmt.Println("Update profileeeeee")
 	var profile Profile
 	var newProfile Profile
-	c.BindJSON(&newProfile);  //Aqui en teoria está la profile que le hemos pasado por postman
+	c.BindJSON(&newProfile);  //Aqui está el profile que le hemos pasado por postman
 	fmt.Println("NEW profile: ",newProfile)
 
 	myUserModel := c.MustGet("my_user_model").(User)
@@ -128,7 +125,14 @@ func ProfileUpdate(c *gin.Context){
 //DELETE profile
 func ProfileDelete(c *gin.Context){
 	var profile Profile
-	id := c.Params.ByName("id")
+	// id := c.Params.ByName("id")
+	// fmt.Println("Id del profile a borrar")
+	// fmt.Println(id)
+
+	myUserModel := c.MustGet("my_user_model").(User)
+	id := myUserModel.ID
+	fmt.Println("MY USER MODEL")
+	fmt.Println(myUserModel.ID)
 
 	err := DeleteProfile(&profile, id)
 

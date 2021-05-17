@@ -10,7 +10,6 @@ import (
 	"strings"
 )
 
-// Strips 'TOKEN ' prefix from token string
 func stripBearerPrefixFromTokenString(tok string) (string, error) {
 	// Should be a bearer token
 	if len(tok) > 6 && strings.ToUpper(tok[0:7]) == "BEARER " {
@@ -35,8 +34,6 @@ var MyAuth2Extractor = &request.MultiExtractor{
 
 // A helper to write user_id and user_model to the context
 func UpdateContextUserModel(c *gin.Context, my_user_id uint) {
-	fmt.Println("DEntro del context User Model")
-	fmt.Println(my_user_id)
 	var myUserModel User
 	if my_user_id != 0 {
 		db := common.GetDB()
